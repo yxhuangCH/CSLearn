@@ -140,9 +140,11 @@
 
 #### 调用结果
 toast 的弹出
+
 <img src="images/a_2_rn_1.png"  width="30%" height="30%">
 
 Android 段发送回调到 RN 的结果
+
 <img src="images/a_2_rn_2.png"  width="50%" height="50%">
 
 <br>
