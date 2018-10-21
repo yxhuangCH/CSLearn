@@ -6,7 +6,7 @@ Flux 是 Fackbook 推出的一个前端应用架构，为了解决 MVC 的框架
 ### 1 MVC 框架的缺陷
 #### MVC 的结构
 
-<img src="image/flux_mvc.png"  width="100%" height="100%">
+<img src="image/flux_mvc.png"  width="80%" height="80%">
 
 - Model(模型)负责管理数据，大部分业务逻辑存放；
 - View (视图) 负责渲染界面，避免在 View 中涉及业务逻辑；
@@ -14,12 +14,12 @@ Flux 是 Fackbook 推出的一个前端应用架构，为了解决 MVC 的框架
 
 #### MVC 架构的缺点
 
-<img src="image/flux_1.png"  width="100%" height="100%">
+<img src="image/flux_1.png"  width="70%" height="70%">
 
 - MVC 最大的问题是无法禁绝 View 和 Model 之间的直接对话
 
 ### 2 Flux 架构
-<img src="image/flux_2.png"  width="100%" height="100%">
+<img src="image/flux_2.png"  width="70%" height="70%">
 
 - Dispatcher: 用来分发 action
 - Action: 动作，包含一个 type 定义 action的类型，一个是数据

@@ -7,6 +7,9 @@
 
 ## Java 部分
 
+## 架构部分
+[Flux 框架](https://github.com/yxhuangCH/CSLearn/blob/master/%E6%9E%B6%E6%9E%84/Flux.md)
+
 ## 编译原理部分
 [Java 中的注解](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%20%E6%B3%A8%E8%A7%A3.md)
 
