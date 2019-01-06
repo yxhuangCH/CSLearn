@@ -12,6 +12,8 @@
 
 [Java 的反射](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%E5%8F%8D%E5%B0%84.md)
 
+[ReentrantLock、synchronized 与 ReadWriteLock](https://github.com/yxhuangCH/CSLearn/blob/master/java/ReentrantLock%20sychronized%20%E4%B8%8EReadWriteLock.md)
+
 ## ReactNative 部分
 [ReactNative 与 Android 之间的通信](https://github.com/yxhuangCH/CSLearn/blob/master/ReactNative/ReactNative%20%E4%B8%8E%20Android%20%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1.md)
 
