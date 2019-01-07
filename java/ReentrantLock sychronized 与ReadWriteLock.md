@@ -93,6 +93,23 @@ private synchronized void doSomething(){
 }
 ```
 
+- **Class对象锁**
+
+```java
+ public static EventBus getDefault() {
+    EventBus instance = defaultInstance;
+    if (instance == null) {
+        synchronized (EventBus.class) {
+            instance = EventBus.defaultInstance;
+            if (instance == null) {
+                instance = EventBus.defaultInstance = new EventBus();
+            }
+        }
+    }
+    return instance;
+}
+```
+
 
 ### 三. Synchronized 与 ReentrantLock 之间选择
 #### synchronized
