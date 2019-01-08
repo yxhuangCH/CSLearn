@@ -61,6 +61,63 @@ public boolean trySend(String message, long timeout, TimeUnit unit) throws Inter
     }
 }
 ```
+##### 2.3 ReentrantLock 的条件变量
+条件变量（java.util.concurrent.locks.Condition）将 wait、 notify、notifyAll 等操作转化为相应的队形，将复杂而晦涩的同步操作转为直观可控的对象行为
+
+例子：ArrayBlockingQueue 源码
+
+```java
+/** Main lock guarding all access */
+final ReentrantLock lock;
+
+/** Condition for waiting takes */
+private final Condition notEmpty;
+
+/** Condition for waiting puts */
+private final Condition notFull;
+
+
+public ArrayBlockingQueue(int capacity, boolean fair) {
+    if (capacity <= 0)
+        throw new IllegalArgumentException();
+    this.items = new Object[capacity];
+    lock = new ReentrantLock(fair);
+    notEmpty = lock.newCondition(); // 条件变量
+    notFull =  lock.newCondition(); // 条件变量
+}
+```
+两个条件变量从同一再入锁创建，让后在特定操作中判读和等到条件的满足
+
+```java
+public E take() throws InterruptedException {
+    final ReentrantLock lock = this.lock;
+    lock.lockInterruptibly();
+    try {
+        while (count == 0){
+            notEmpty.await(); // 等待
+        }   
+        return dequeue();
+    } finally {
+        lock.unlock();
+    }
+}
+```
+当队列为空时，试图 take 的线程会等待，而不是直接返回
+
+```java
+private void enqueue(E x) {
+    // assert lock.getHoldCount() == 1;
+    // assert items[putIndex] == null;
+    final Object[] items = this.items;
+    items[putIndex] = x;
+    if (++putIndex == items.length) putIndex = 0;
+    count++;
+    notEmpty.signal();  // 通知等待线程，非空条件已经满足
+}
+```
+队列了添加了数据，通知等待线程，条件满足。
+通过 signal/ await 的组合，完成条件判断和通知等待线程，顺畅完成了状态的流转。
+signal 和 await 必须成对调用，不然线程会一直等待直到被打断（interrup）.
 
 ### 二. Synchronized
 使用了 synchronized 方法在同一时间只能被一个线程使用，其他线程必须等到这方法释放。
@@ -182,4 +239,9 @@ public class ReadWriteMap<K, V> {
     }
 }
 ```
+
+
+### 四. 参考
+- 《Java 并发编程实战》
+- 极客时间 《Java 核心技术36讲》第 15 讲
 
