@@ -122,6 +122,7 @@ signal 和 await 必须成对调用，不然线程会一直等待直到被打断
 ### 二. Synchronized
 使用了 synchronized 方法在同一时间只能被一个线程使用，其他线程必须等到这方法释放。
 线程在进入了同步代码块之前会自动获得锁，并且在退出同步代码块时自动释放锁。
+Synchronized 代码块是由一对 monitorenter/monitorexit 指令实现的，Monitor 对象是同步的基本实现单元。
 
 #### 同步代码块包含两部分
 - 一个作为锁的对象引用

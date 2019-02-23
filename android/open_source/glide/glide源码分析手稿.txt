@@ -1,0 +1,330 @@
+
+开始
+	Glide.with(this).load(url).into(imageView)
+
+	Gilde#with(), 返回一个 RequestManager
+
+
+加载的流程
+	RequestManager#load()    返回一个 DrawableTypeRequest 
+		RequestManager#fromString()
+			RequestManager#loadGeneric()   返回一个 DrawableTypeRequest
+
+
+	DrawableTypeRequest#into()
+		DrawableRequestBuilder#into()
+			GenericRequestBuilder#into()
+				Gilde#buildImageViewTarget() 返回一个 ImageViewTarget
+				GenericRequestBuilder#into(Y target)
+					GenericRequestBuilder#buildRequest()  返回一个 GenericRequest
+					RequestTracker#runRequest(Request)
+						Request#begin()
+
+						GenericRequest#begin()
+							GenericRequest#onSizeReady()
+								Engine#load（）      		核心方法开始
+									ExecutorService#submit()
+										EngineRunnable#run()
+											EngineRunnable#decode()
+												EngineRunnable#decodeFromCache()   // 缓存获取
+												EngineRunnable#decodeFromSource()  // 网络获取
+
+												EngineRunnable#decodeFromSource()	
+													DecodeJob#decodeFromSource()
+														DecodeJob#decodeSource()   获取 resource
+															DataFetcher#loadData()  获取数据，接口，各自实现
+
+															HttpUrlFetcher#loadData()
+																HttpUrlFetcher#loadDataWithRedirects()   网络通信
+
+														DecodeJob#decodeFromSourceData()
+															...
+																Downsampler#decode()    核心，图片的加载、旋转、圆角的处理，图片的压缩
+
+
+
+
+														DecodeJob#transformEncodeAndTranscode    处理 resource
+
+
+
+
+
+
+
+
+缓存
+	内存缓存，防止应用重复将图片数据读取到内存当中
+	硬盘缓存， 防止应用重复从网络或其他地方重复下载和读取数据
+
+	Engine#load() 中生 key 
+
+	内存缓存
+		Glide.get()
+			GlideBuilder#createGlide()   // LruResourceCache 实现 Lru 算法的内存缓存；  InternalCacheDiskCacheFactory 硬盘缓存
+
+			Engine#loadFromCache(), 使用了 Lru 算法的 LruResourceCache
+			Engine#loadFromActiveResources() 使用了弱引用, 用来缓存正在使用的图片，防止 LruResourceCache 中被移除
+
+	硬盘缓存
+		使用 Glide 去加载一张图片的时候，Glide 默认不会讲原始的图片展示出来的，二是会对图片进行压缩和转换。
+		Glide 默认情况下载硬盘缓存的就是转换过后的图片，我们可以通过 diskCacheStrategy() 方法改变这一行为
+
+		DiskCacheStrategy.NONE： 表示不缓存任何内容。
+		DiskCacheStrategy.SOURCE： 表示只缓存原始图片。
+		DiskCacheStrategy.RESULT： 表示只缓存转换过后的图片（默认选项）。
+		DiskCacheStrategy.ALL ： 表示既缓存原始图片，也缓存转换过后的图片
+
+
+		EngineRunnable#run()
+			EngineRunnable#decode()
+				EngineRunnable#decodeFromCache()
+					DecodeJob#decodeResultFromCache()   // DiskCacheStrategy.RESULT
+						DecodeJob#loadFromCache()    // 硬盘缓存中返回
+
+
+
+					DecodeJob#decodeSourceFromCache()   // DiskCacheStrategy.SOURCE
+						DecodeJob#loadFromCache()	 // 硬盘缓存中返回
+
+		写入硬盘缓存
+			DecodeJob#decodeFromSource（）
+				DecodeJob#decodeSource（）
+					DecodeJob#decodeFromSourceData()
+						DecodeJob#cacheAndDecodeSourceData()
+							diskCacheProvider.getDiskCache().put(resultKey.getOriginalKey(), writer)   
+								// 写入磁盘, 这是原始数据写入磁盘，key 是 getOriginalKey()
+		转换之后的数据写入磁盘
+			DecodeJob#transformEncodeAndTranscode()
+				DecodeJob#writeTransformedToCache()
+					diskCacheProvider.getDiskCache().put(resultKey, writer) // 写入磁盘， 这是转换之后的数据写入磁盘，key 是 resultKey
+
+
+
+
+
+Glide 问题：
+1.如何知道外部的宿主的生命周期？
+Glide 在内部生成一个空的Fragment, RequestManagerFragment 用来感知外部宿主的生命周期，
+然后这个 Fragment t通过 ActivityFragmentLifecycle 影响 RequestManager，来决定 Glide 请求过程
+中的决定
+
+
+2.如何处理缓存？
+内存缓存，防止应用重复将图片数据读取到内存当中
+硬盘缓存， 防止应用重复从网络或其他地方重复下载和读取数据
+
+LruResourceCache  内存缓存
+InternalCacheDiskCacheFactory  磁盘缓存策略，默认是 250 MB, DiskCache 类中
+DiskLruCacheWrapper 默认的磁盘缓存类
+
+
+	- 加载的时候， Engine.load() 方法中会调用 
+		loadFromCache() 从缓存中获取
+		loadFromActiveResources()  从弱引用中获取
+	- 放入到缓存中
+		从网络获取数据成功是 EngineRunnable#run() 中回调用 onLoadComplete 回调，然后通过 handle 发送消息
+		回到主线程，调用了EngineJob#handleResultOnMainThread，
+		通过回调 Engine#onEngineJobComplete() 中放入到 弱引用缓存中
+		EngineResource#acquire() 当前使用资源会加 1；
+		EngineResource#release() 不再使用资源减 1； 回调 ResourceListener#onResourceReleased 回到 Engine 中, 放入到LRU内存缓存中
+
+
+    - 放到磁盘缓存中
+     DecodeJob#cacheAndDecodeSourceData()   			
+     writeTransformedToCache#writeTransformedToCache()     这两个方法中存入磁盘, 使用 DiskLruCacheWrapper 类
+
+
+
+EngineRunnable#decodeFromCache
+private Resource<?> decodeFromCache() throws Exception {
+        Resource<?> result = null;
+        try {
+            result = decodeJob.decodeResultFromCache(); 先尝试取出 result 的缓存
+        } catch (Exception e) {
+            if (Log.isLoggable(TAG, Log.DEBUG)) {
+                Log.d(TAG, "Exception decoding result from cache: " + e);
+            }
+        }
+
+        if (result == null) {
+            result = decodeJob.decodeSourceFromCache(); 然后再取出 source 的缓存
+        }
+        return result;
+ }
+
+
+3.转换是怎样的？
+DecodeJob#decodeFromSource()
+	DecodeJob#transformEncodeAndTranscode()
+		DecodeJob#transform()
+
+			  private Resource<T> transform(Resource<T> decoded) {
+		        if (decoded == null) {
+		            return null;
+		        }
+
+		        Resource<T> transformed = transformation.transform(decoded, width, height);
+		        if (!decoded.equals(transformed)) {
+		            decoded.recycle();
+		        }
+		        return transformed;
+		    }
+
+
+		 public interface Transformation<T> {
+		 	Resource<T> transform(Resource<T> resource, int outWidth, int outHeight);
+		 	String getId();
+		 }
+
+		 所有的变换都需要继承 Transformation
+
+
+		 Glide.with(getContext()).load(R.drawable.ic_launchers)
+                    .transform(new CircleTransform())
+                    .into(mImgUserAdver);
+
+         .transform（） 方法设置了 Transformation 的实例，会一直传递到 DecodeJob 中，在
+         DecodeJob#transform() 中调用
+
+
+
+
+4.加载流程的监听 Listener?
+
+
+
+5.自定义 GlideModule
+继承 GlideModule，在 AndroidManifest.xml 中加入配置
+  <application>
+
+        <meta-data
+            android:name="com.example.glidetest.MyGlideModule"
+            android:value="GlideModule" />
+
+        ...
+
+  </application>
+
+Glide#get() 方法中会将 GlideModule 解析出来
+
+
+
+6. into() 方法，可以传入自定义 Target
+
+
+7.preload() 方法， 预加载
+
+
+
+8.downloadOnly() 
+
+9.更改 Glide 的配置
+GlideBuilder 
+
+
+setMemoryCache() 
+用于配置Glide的内存缓存策略，默认配置是LruResourceCache。
+
+setBitmapPool() 
+用于配置Glide的Bitmap缓存池，默认配置是LruBitmapPool。
+
+setDiskCache() 
+用于配置Glide的硬盘缓存策略，默认配置是InternalCacheDiskCacheFactory。
+
+setDiskCacheService() 
+用于配置Glide读取缓存中图片的异步执行器，默认配置是FifoPriorityThreadPoolExecutor，也就是先入先出原则。
+
+setResizeService() 
+用于配置Glide读取非缓存中图片的异步执行器，默认配置也是FifoPriorityThreadPoolExecutor。
+
+setDecodeFormat() 
+用于配置Glide加载图片的解码模式，默认配置是RGB_565。
+
+在自定义的 GlideMedule 的 applyOptions 中改配置
+
+ public class MyGlideModule implements GlideModule {
+
+    @Override
+    public void applyOptions(Context context, GlideBuilder builder) {
+    	// 改配置
+        builder.setDiskCache(new ExternalCacheDiskCacheFactory(context));
+    }
+
+    @Override
+    public void registerComponents(Context context, Glide glide) {
+    	// 自定义组件
+    	glide.register(GlideUrl.class, InputStream.class, new OkHttpGlideUrlLoader.Factory());
+
+    }
+
+}
+
+10. 自定义组件
+
+
+
+
+
+Glide.with(context).load(url).into(imageView);
+
+Glide.with() 返回一个 RequestManager，
+RequestManagerFragment.load(url) 返回一个 DrawableTypeRequest
+
+GenericRequestBuilder.into();
+
+
+重要的类：
+	GlideBuilder， 默认 Glide 的配置类
+
+
+Glide#get() 方法会加载 GlideModule
+
+
+其他：
+	LruBitmapPool 使用 LRU 算法实现的一个 Bitmap 缓存池，可以参考
+	DiskCacheWriteLocker 锁的实现
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
