@@ -7,7 +7,7 @@
 
 #### Android 进阶系列
 [Android 卡顿（一）：总述](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_block/Android%E5%8D%A1%E9%A1%BF-%E6%80%BB%E8%BF%B0.md)
-
+[Android 进阶系列： Android 卡顿（二）：Android Android Studio Profiler 的使用](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_block/Android%E5%8D%A1%E9%A1%BF-Profiler.md)
 ## Java 部分
 [Java 中的注解](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%20%E6%B3%A8%E8%A7%A3.md)
 
