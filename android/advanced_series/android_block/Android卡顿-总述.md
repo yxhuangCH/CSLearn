@@ -1,6 +1,8 @@
 ## Android 进阶系列： Android 卡顿（一）：总述
-卡顿的原因一般是主线程执行繁重的 UI 绘制、大量的计算或者 I/O 等耗时操作。
+Android 卡顿系列是根据极客时间的专栏《Android开发高手课》 整理而成的。
 
+
+卡顿的原因一般是主线程执行繁重的 UI 绘制、大量的计算或者 I/O 等耗时操作。
 监控卡顿需要获取卡顿时的堆栈和当时 CPU 运行的一些信息，卡顿的最后都会反映到 CPU 时间上；
 
 监控卡顿方法一般分为两个类型，一是监控主线程，另外一个计算函数的耗时；
@@ -92,6 +94,8 @@ Uber 开源的 [Nanoscope](https://github.com/uber/nanoscope)
 ##### 5. Profiler 
 [Profiler](https://developer.android.com/studio/profile?hl=zh-cn) 是 Android Studio 3.2 提供的可视化的性能分析工具，它可以分析 CPU 的活动活动和函数跟踪、网络的检测以及电池的使用分析。
 
+#### 四、参考
+1.[极客时间，卡顿优化（上）：你要掌握的卡顿分析方法](https://time.geekbang.org/column/article/71982)
 
 
 
