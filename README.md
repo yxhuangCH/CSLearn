@@ -5,9 +5,16 @@
 
 [Flux设计模式在 Android 中的引用](https://github.com/yxhuangCH/CSLearn/blob/master/android/FluxAndroid.md)
 
-#### Android 进阶系列
+### Android 进阶系列
+#### 1. Android 卡顿
 [Android 卡顿（一）：总述](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_block/Android%E5%8D%A1%E9%A1%BF-%E6%80%BB%E8%BF%B0.md)
-[Android 进阶系列： Android 卡顿（二）：Android Android Studio Profiler 的使用](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_block/Android%E5%8D%A1%E9%A1%BF-Profiler.md)
+
+[Android 卡顿（二）：Android Android Studio Profiler 的使用](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_block/Android%E5%8D%A1%E9%A1%BF-Profiler.md)
+
+[Android 卡顿（三）：实现（一）](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_block/Android%E5%8D%A1%E9%A1%BF%E4%B8%89-%E5%AE%9E%E7%8E%B0(%E4%B8%80).md)
+
+[Android卡顿（四）：实现（二）](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_block/Android%E5%8D%A1%E9%A1%BF%E5%9B%9B-%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%BA%8C%EF%BC%89.md)
+
 ## Java 部分
 [Java 中的注解](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%20%E6%B3%A8%E8%A7%A3.md)
 
