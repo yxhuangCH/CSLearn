@@ -179,8 +179,10 @@ private void dumpInfo(){
 ```
 
 ### 参考资料
-1.[微信读书（Android）阅读引擎卡顿监控测试](https://www.infoq.cn/article/weixin-reading-stuck-monitor-and-test)
-2. [Matrix TraceCanary -- 初恋·卡顿](https://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&mid=2649287054&idx=1&sn=40f1b9935c280547926fc5f799c0b9c2&chksm=8334cd0cb443441aad977bd462df6cafcb20ae55bf9d70c99a7b3045178c848a7e75b6e02aa1&mpshare=1&scene=1&srcid=%23rd)
-3. [滴滴 DoraemonKit](https://github.com/didi/DoraemonKit)
+- 1.[微信读书（Android）阅读引擎卡顿监控测试](https://www.infoq.cn/article/weixin-reading-stuck-monitor-and-test)
+
+- 2.[Matrix TraceCanary -- 初恋·卡顿](https://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&mid=2649287054&idx=1&sn=40f1b9935c280547926fc5f799c0b9c2&chksm=8334cd0cb443441aad977bd462df6cafcb20ae55bf9d70c99a7b3045178c848a7e75b6e02aa1&mpshare=1&scene=1&srcid=%23rd)
+
+- 3.[滴滴 DoraemonKit](https://github.com/didi/DoraemonKit)
 
 
