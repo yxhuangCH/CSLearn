@@ -196,6 +196,29 @@ JointPoint 的直接选择是通过 Signature 信息匹配的，除此之外还�
 |target(Type)|JoinPoint 的 target 对象是 Type 类型|和this相对的是target。不过target一般用在call的情况。call一个函数，这个函数可能定义在其他类。比如testMethod是TestDerived类定义的。那么target(TestDerived)就会搜索到调用testMethod的地方。但是不包括testMethod的execution JointPoint|
 |args(TypeSignature)| 用来对 JointPoint 的参数进行条件搜索|例如 arg(int, ..)<br>表示第一个参数是 int, 后面参数个数和类型不限的 JointPoint|
 
+###### 3.call 与 execution 区别
+当 call 捕获 joinPoint 时，捕获的签名方法的**调用点**;execution 捕获 joinPoint 时，捕获的则是**执行点**。
+两个的区别在于一个是 ”调用点“， 一个是 ”执行点“
+
+对于 call 来讲
+
+```java
+call(Before)
+Pointcut {
+    Pointcut Method
+}
+call(After)
+```
+对于 execution 来说
+
+```java
+Pointcut {
+   Execution(Before)
+   Pointcut Method
+   Execution(After)
+}
+```
+
 ###### 3.AspectJ 注解的等价
 AspectJ 提供了相应的注解，注解的方式和 AspectJ 语言编写是等效的。我们在 Android 中一般也是采用注解的方式
 
@@ -278,6 +301,7 @@ public void onMethLog(JoinPoint joinPoint){
 }
 ```
 查看输出
+
 <img src="image/aspectj/aspectj_1.png" width="80%" height="100%">
 
 改成 Around 的方式
@@ -307,6 +331,7 @@ public Object weaveOnMethodJoinPoint(ProceedingJoinPoint joinPoint) throws Throw
 }
 ```
 输出
+
 <img src="image/aspectj/aspectj_2.png" width="80%" height="100%">
 
 从上面例子的输出我们可以看到 around 等价于 before + after, 另外 JointPoint#proceed 是原来的 JointPoint，在这里是 onResume 方法， 输出中的 *“--- onResume---”* 就是在 onResume 中打印的。
@@ -363,6 +388,7 @@ public void onFiled(JoinPoint joinPoint, Object newValue, Object t) throws Illeg
 }
 ```
 我们看看输出
+
 <img src="image/aspectj/aspectj_3.png" width="80%" height="100%">
 
 定义切面表达式使用 *args(newValue) && target(t)* 它们的参数值 *newValue, t*,必须要和方法中的定义的对的上 
@@ -411,7 +437,272 @@ return result;
 更详细的信息参考文档
 https://www.eclipse.org/aspectj/doc/released/runtime-api/index.html
 
+总结一下，使用 AspectJ 的步骤：
+> 1. 设置 Pointcut 的表达式
+> 2. 选择相应的 advice
+> 3. 对 JointPoint 或参数进行相应的处理
+
 ### 三、AspectJ 集成在 Android studio 中
+前面已经介绍完了 AspectJ, 那接下来看看在 Android 中的实际使用；
+实例代码是在这个例子上进行修改的[Android-AOPExample](https://github.com/android10/Android-AOPExample)。
+
+#### 1. Library 库依赖方式使用
+项目的结构如下
+
+<img src="image/aspectj/aspectj_4.png" width="60%" height="40%">
+
+在 library 项目 gintoinc 的 build.gradle 文件要添加 aspectj 的依赖
+
+```grovy
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.1.0'
+    classpath 'org.aspectj:aspectjtools:1.8.1'  // aspectjtools
+  }
+}
+
+apply plugin: 'com.android.library'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.aspectj:aspectjrt:1.8.1'  // aspectjrt
+}
+
+android {
+  compileSdkVersion 21
+  buildToolsVersion '21.1.2'
+
+  lintOptions {
+    abortOnError false
+  }
+}
+
+// -showWeaveInfo，输出编织过程信息
+// -1.5 设置规范1.5，匹配java1.5
+// -inpath class文件目录或者jar包， 源字节码，需要处理的类
+// -aspectpath  定义的切面类
+// -d 存放编辑产生的class文件
+// -classpath ，所有class文件，源class，java包，编织时需要用到的一些处理类
+android.libraryVariants.all { variant ->
+  LibraryPlugin plugin = project.plugins.getPlugin(LibraryPlugin)
+  JavaCompile javaCompile = variant.javaCompile
+  javaCompile.doLast {
+    String[] args = ["-showWeaveInfo",
+                     "-1.5",
+                     "-inpath", javaCompile.destinationDir.toString(),
+                     "-aspectpath", javaCompile.classpath.asPath,
+                     "-d", javaCompile.destinationDir.toString(),
+                     "-classpath", javaCompile.classpath.asPath,
+                     "-bootclasspath", plugin.project.android.bootClasspath.join(File.pathSeparator)]
+
+    MessageHandler handler = new MessageHandler(true);
+    new Main().run(args, handler)
+
+    def log = project.logger
+    for (IMessage message : handler.getMessages(null, true)) {
+      switch (message.getKind()) {
+        case IMessage.ABORT:
+        case IMessage.ERROR:
+        case IMessage.FAIL:
+          log.error message.message, message.thrown
+          break;
+        case IMessage.WARNING:
+        case IMessage.INFO:
+          log.info message.message, message.thrown
+          break;
+        case IMessage.DEBUG:
+          log.debug message.message, message.thrown
+          break;
+      }
+    }
+  }
+}
+```
+
+在引用库工程的工程 build.gradle 也要进行相应的配置
+
+```grovy
+import org.aspectj.bridge.IMessage
+import org.aspectj.bridge.MessageHandler
+import org.aspectj.tools.ajc.Main
+
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'org.aspectj:aspectjtools:1.8.1'
+  }
+}
+
+apply plugin: 'com.android.application'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile project(':gintonic')
+  compile 'org.aspectj:aspectjrt:1.8.1'
+}
+
+android {
+  compileSdkVersion 21
+  buildToolsVersion '21.1.2'
+
+  defaultConfig {
+    applicationId 'android10.org.viewgroupperformance'
+    minSdkVersion 15
+    targetSdkVersion 21
+  }
+
+  lintOptions {
+    abortOnError true
+  }
+}
+
+final def log = project.logger
+final def variants = project.android.applicationVariants
+
+variants.all { variant ->
+  if (!variant.buildType.isDebuggable()) {
+    log.debug("Skipping non-debuggable build type '${variant.buildType.name}'.")
+    return;
+  }
+
+  JavaCompile javaCompile = variant.javaCompile
+  javaCompile.doLast {
+    String[] args = ["-showWeaveInfo",
+                     "-1.5",
+                     "-inpath", javaCompile.destinationDir.toString(),
+                     "-aspectpath", javaCompile.classpath.asPath,
+                     "-d", javaCompile.destinationDir.toString(),
+                     "-classpath", javaCompile.classpath.asPath,
+                     "-bootclasspath", project.android.bootClasspath.join(File.pathSeparator)]
+    log.debug "ajc args: " + Arrays.toString(args)
+
+    MessageHandler handler = new MessageHandler(true);
+    new Main().run(args, handler);
+    for (IMessage message : handler.getMessages(null, true)) {
+      switch (message.getKind()) {
+        case IMessage.ABORT:
+        case IMessage.ERROR:
+        case IMessage.FAIL:
+          log.error message.message, message.thrown
+          break;
+        case IMessage.WARNING:
+          log.warn message.message, message.thrown
+          break;
+        case IMessage.INFO:
+          log.info message.message, message.thrown
+          break;
+        case IMessage.DEBUG:
+          log.debug message.message, message.thrown
+          break;
+      }
+    }
+  }
+}
+```
+
+文章[Aspect Oriented Programming in Android](https://fernandocejas.com/2014/08/03/aspect-oriented-programming-in-android/) 是通过注解去查看方法执行的时间，我们在这个基础上进行修改，去监听一个成员变量赋值变化的监听。
+
+我们需要监听 *MainActivity* 中 *mTest*
+
+```java
+private int mTest = -1;
+@Override
+protected void onResume() {
+    super.onResume();
+    Log.i(TAG, "--- onResume---");
+    mTest = 100;
+}
+```
+
+**第一步. 设置 Pointcut 的表达式**
+在 *TraceAspect.java*中
+
+```java
+ //　set field 的切面
+    private static final String POINTCUT_FILEED =
+            "set(int org.android10.viewgroupperformance.activity.MainActivity.mTest) && args(newValue) && target(t)";
+            
+```
+根据 JoinPoint 的选择策略和 Pointcut 的语法对应关系，成员变量选择的 *set*, 参数传递的监听使用 *args(newValue) && target(t)*
+
+**第二步. 选择相应的 advice**
+
+```java
+@Before(POINTCUT_FILEED)
+public void onFiled(JoinPoint joinPoint, Object newValue, Object t) throws IllegalAccessException {
+    
+    ...
+    
+}
+```
+这里我们选择的是 *Before*, 注意在第一步  args(newValue) && target(t) 中的 *newValue 和 t* 是要在 advice 函数中定义的 *Object newValue, Object t*.
+
+**第三步. 对 JointPoint 或参数进行相应的处理**
+
+```java
+@Before(POINTCUT_FILEED)
+public void onFiled(JoinPoint joinPoint, Object newValue, Object t) throws IllegalAccessException {
+
+    FieldSignature fieldSignature = (FieldSignature) joinPoint.getSignature();
+    String fileName = fieldSignature.getName();
+    Field field = fieldSignature.getField();
+    field.setAccessible(true);
+    Class clazz = fieldSignature.getFieldType();
+    String clazzName = clazz.getSimpleName();
+
+    // 获取旧的值
+    Object oldValue = field.get(t);
+
+    Log.i("MainActivity",
+               "\nonFiled value = " + newValue.toString()
+                    + "\ntarget = " + t.toString()
+                    + "\n fieldSignature =" + fieldSignature.toString()
+                    + "\nfield = " + field.toString()
+                    + "\nFileName = " + fileName
+                    + "\nclazzName = " + clazzName
+                    + " \noldValue = " + oldValue.toString() );
+    
+}
+```
+通过 JoinPoint 获取相应的信息。
+
+在 build 之后，在 app/intermediates/classes/debug 目录下的 
+
+<img src="image/aspectj/aspectj_5.png" width="60%" height="40%">
+
+MainActivity.class 文件中
+
+```java
+protected void onResume() {
+    super.onResume();
+    Log.i("MainActivity", "--- onResume---");
+    byte var1 = 100;
+    JoinPoint var3 = Factory.makeJP(ajc$tjp_2, this, this, Conversions.intObject(var1));
+    TraceAspect.aspectOf().onFiled(var3, Conversions.intObject(var1), this);
+    this.mTest = var1;
+}
+```
+我们发现上面生成了一下代码，这些生成的代码就是 AspectJ 根据我们前面设置的 Pointcut 和 adive 生成的。
+
+输出
+在 build 之后，在 app/intermediates/classes/debug 目录下的 
+
+<img src="image/aspectj/aspectj_3.png" width="70%" height="100%">
+
+####2. Plugin 插件方式使用
+
+
 ### 四、参考
 - 1. [深入理解Android之AOP](https://blog.csdn.net/innost/article/details/49387395)
 - 2. [Aspect Oriented Programming in Android](https://fernandocejas.com/2014/08/03/aspect-oriented-programming-in-android/)
