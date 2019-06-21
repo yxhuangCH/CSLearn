@@ -700,8 +700,128 @@ protected void onResume() {
 
 <img src="image/aspectj/aspectj_3.png" width="70%" height="100%">
 
-####2. Plugin 插件方式使用
+#### 2. Plugin 插件方式使用
+如果是多个 Module 都依赖 AspectJ, 可以写成 plugin 插件的型式
+<img src="image/aspectj/aspectj_6.png" width="40%" height="50%">
 
+关于如果使用 Android studio 的 Plugin 插件，可以去查看相关资料
+
+项目的 build.gradle
+
+```grovy
+buildscript {
+    repositories {
+        mavenCentral()
+        // 本地仓库
+        maven {
+            url uri('repo')
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.0'
+        // 引入插件
+        classpath 'com.yxhuang:autotrack.android:1.0.1'
+    }
+}
+
+allprojects {
+  repositories {
+    mavenCentral()
+      maven {
+          url 'https://maven.google.com/'
+          name 'Google'
+      }
+  }
+}
+
+//task wrapper(type: Wrapper) {
+//  gradleVersion = '2.12'
+//}
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+```
+
+gintonic 的 build.gradle 文件
+
+```grovy
+buildscript {
+  repositories {
+    mavenCentral()
+    //　本地代码仓
+    maven{
+      url uri('../repo')
+    }
+  }
+  dependencies {
+    classpath 'com.android.tools.build:gradle:2.1.0'
+    classpath 'com.yxhuang:autotrack.android:1.0.1' // 引用插件
+  }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.yxhuang.android' // 引用插件
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+}
+
+android {
+  compileSdkVersion 21
+  buildToolsVersion '21.1.2'
+
+  lintOptions {
+    abortOnError false
+  }
+}
+```
+app module 的 build.gradle 文件
+
+```grovy
+apply plugin: 'com.android.application'
+apply plugin: 'com.yxhuang.android'  //引入插件
+
+buildscript {
+  repositories {
+    mavenCentral()
+
+    //　本地代码仓
+    maven{
+      url uri('../repo')
+    }
+  }
+  dependencies {
+    classpath 'com.yxhuang:autotrack.android:1.0.1' //引入插件
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile project(':gintonic')
+}
+
+android {
+  compileSdkVersion 21
+  buildToolsVersion '21.1.2'
+
+  defaultConfig {
+    applicationId 'android10.org.viewgroupperformance'
+    minSdkVersion 15
+    targetSdkVersion 21
+  }
+
+  lintOptions {
+    abortOnError true
+  }
+}
+```
+具体的代码可以去 github [AndroidAopDemo](https://github.com/yxhuangCH/AndroidAopDemo) 选择 tag v2 即可。
 
 ### 四、参考
 - 1. [深入理解Android之AOP](https://blog.csdn.net/innost/article/details/49387395)
