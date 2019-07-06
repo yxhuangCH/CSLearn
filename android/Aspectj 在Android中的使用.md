@@ -702,6 +702,7 @@ protected void onResume() {
 
 #### 2. Plugin 插件方式使用
 如果是多个 Module 都依赖 AspectJ, 可以写成 plugin 插件的型式
+
 <img src="image/aspectj/aspectj_6.png" width="40%" height="50%">
 
 关于如果使用 Android studio 的 Plugin 插件，可以去查看相关资料
