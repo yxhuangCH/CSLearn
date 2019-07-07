@@ -18,6 +18,7 @@
 
 #### 2. Android 插桩
 [Aspectj 在Android中的使用](https://github.com/yxhuangCH/CSLearn/blob/master/android/Aspectj%20%E5%9C%A8Android%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8.md)
+[Aspectj 在 Android 中限制快速点击](https://github.com/yxhuangCH/CSLearn/blob/master/android/Aspectj%E5%9C%A8Android%E4%B8%AD%E9%99%90%E5%88%B6%E5%BF%AB%E9%80%9F%E7%82%B9%E5%87%BB.md)
 
 ## Java 部分
 [Java 中的注解](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%20%E6%B3%A8%E8%A7%A3.md)

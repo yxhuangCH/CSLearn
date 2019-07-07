@@ -1,4 +1,4 @@
-# Aspectj 在 Android 中限制快速点击
+# Android 使用 Aspectj 限制快速点击
 
 在[AspectJ 在 Android 中的使用](https://github.com/yxhuangCH/CSLearn/blob/master/android/Aspectj%20%E5%9C%A8Android%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8.md)中，介绍了 Aspectj 的基本知识及其在 Android 中的基本使用，在这篇将会介绍如何使用 Aspectj 在 Android 中限制快速点击
 
