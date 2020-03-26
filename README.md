@@ -5,6 +5,8 @@
 
 [Flux设计模式在 Android 中的引用](https://github.com/yxhuangCH/CSLearn/blob/master/android/FluxAndroid.md)
 
+[Android 动态链接库 So 的加载](https://github.com/yxhuangCH/CSLearn/blob/master/android/AndroidSo%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B.md)
+
 ### Android 进阶系列
 #### 1. Android 卡顿
 [Android 卡顿（一）：总述](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_block/Android%E5%8D%A1%E9%A1%BF-%E6%80%BB%E8%BF%B0.md)
@@ -18,7 +20,13 @@
 
 #### 2. Android 插桩
 [Aspectj 在Android中的使用](https://github.com/yxhuangCH/CSLearn/blob/master/android/Aspectj%20%E5%9C%A8Android%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8.md)
+
 [Aspectj 在 Android 中限制快速点击](https://github.com/yxhuangCH/CSLearn/blob/master/android/Aspectj%E5%9C%A8Android%E4%B8%AD%E9%99%90%E5%88%B6%E5%BF%AB%E9%80%9F%E7%82%B9%E5%87%BB.md)
+
+#### 3. Android View 部分
+
+[CoordinatorLayout 与 Behavior](https://github.com/yxhuangCH/CSLearn/blob/master/android/CoordinatorLayout%E4%B8%8EBehavior.md)
+
 
 ## Java 部分
 [Java 中的注解](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%20%E6%B3%A8%E8%A7%A3.md)
@@ -36,6 +44,16 @@
 
 ## 架构部分
 [Flux 框架](https://github.com/yxhuangCH/CSLearn/blob/master/%E6%9E%B6%E6%9E%84/Flux.md)
+
+## 设计模式
+
+[State 模式](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/State%E6%A8%A1%E5%BC%8F.md)
+
+[Stratey 模式](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Stratey%20%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.md)
+
+[设计模式总结](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93.md)
+
+[软件设计原则（一）： 依赖倒置原则](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%EF%BC%88%E4%B8%80%EF%BC%89%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99.md)
 
 
 ## 编译原理部分
