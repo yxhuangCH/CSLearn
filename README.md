@@ -37,9 +37,13 @@
 
 [ReentrantLock、synchronized 与 ReadWriteLock](https://github.com/yxhuangCH/CSLearn/blob/master/java/ReentrantLock%20sychronized%20%E4%B8%8EReadWriteLock.md)
 
-[Java字节码](https://github.com/yxhuangCH/CSLearn/blob/master/java/Java%E5%AD%97%E8%8A%82%E7%A0%81.md)
+[JVM(一) - Java字节码](https://github.com/yxhuangCH/CSLearn/blob/master/java/Java%E5%AD%97%E8%8A%82%E7%A0%81.md)
 
-[Java Class 文件](https://github.com/yxhuangCH/CSLearn/blob/master/java/JvmClass%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.md)
+[JVM(二) - Java Class 文件](https://github.com/yxhuangCH/CSLearn/blob/master/java/JvmClass%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.md)
+
+[JVM(三) - 类加载器](https://github.com/yxhuangCH/CSLearn/blob/master/java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8.md)
+
+[JVM(四) - 类的生命周期](https://github.com/yxhuangCH/CSLearn/blob/master/java/%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md)
 
 ## ReactNative 部分
 [ReactNative 与 Android 之间的通信](https://github.com/yxhuangCH/CSLearn/blob/master/ReactNative/ReactNative%20%E4%B8%8E%20Android%20%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1.md)
