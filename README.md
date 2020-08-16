@@ -45,6 +45,8 @@
 
 [JVM(四) - 类的生命周期](https://github.com/yxhuangCH/CSLearn/blob/master/java/%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md)
 
+[JVM(五) - 连接模型](https://github.com/yxhuangCH/CSLearn/blob/master/java/jvm%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%A8%A1%E5%9E%8B.md)
+
 ## ReactNative 部分
 [ReactNative 与 Android 之间的通信](https://github.com/yxhuangCH/CSLearn/blob/master/ReactNative/ReactNative%20%E4%B8%8E%20Android%20%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1.md)
 
