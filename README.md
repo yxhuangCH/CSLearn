@@ -23,6 +23,12 @@
 
 [Aspectj 在 Android 中限制快速点击](https://github.com/yxhuangCH/CSLearn/blob/master/android/Aspectj%E5%9C%A8Android%E4%B8%AD%E9%99%90%E5%88%B6%E5%BF%AB%E9%80%9F%E7%82%B9%E5%87%BB.md)
 
+[Android 编译插桩（一）： ASM](https://github.com/yxhuangCH/CSLearn/blob/master/android/Android%20%E7%BC%96%E8%AF%91%E6%8F%92%E6%A1%A9%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%20ASM.md)
+
+[Android 编译插桩（二）： Gradle Transform](Android 编译插桩（二）： Gradle Transform)
+
+[Android 编译插桩（三）：Transform + ASM](https://github.com/yxhuangCH/CSLearn/blob/master/android/Android%20%E7%BC%96%E8%AF%91%E6%8F%92%E6%A1%A9%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9ATransform%20%2B%20ASM.md)
+
 #### 3. Android View 部分
 
 [CoordinatorLayout 与 Behavior](https://github.com/yxhuangCH/CSLearn/blob/master/android/CoordinatorLayout%E4%B8%8EBehavior.md)
