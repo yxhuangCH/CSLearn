@@ -62,7 +62,7 @@ KOOM 需要在 dump 过程中 hook 虚拟机的 write 函数，缺点是由于�
 
 ### 5.1 排查方法
 - 使用 MAT
-- 使用 
+- 使用 Profile
 
 
 

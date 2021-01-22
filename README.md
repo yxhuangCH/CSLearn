@@ -29,7 +29,12 @@
 
 [Android 编译插桩（三）：Transform + ASM](https://github.com/yxhuangCH/CSLearn/blob/master/android/Android%20%E7%BC%96%E8%AF%91%E6%8F%92%E6%A1%A9%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9ATransform%20%2B%20ASM.md)
 
-#### 3. Android View 部分
+#### 3. Android 内存优化
+[Android 内存优化（一）](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_memory/Android%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96(%E4%B8%80).md)
+
+[Android 内存优化（二）](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_memory/Android%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96(%E4%BA%8C).md)
+
+#### 4. Android View 部分
 
 [CoordinatorLayout 与 Behavior](https://github.com/yxhuangCH/CSLearn/blob/master/android/CoordinatorLayout%E4%B8%8EBehavior.md)
 
