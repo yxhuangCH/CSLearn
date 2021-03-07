@@ -58,6 +58,9 @@
 
 [JVM(五) - 连接模型](https://github.com/yxhuangCH/CSLearn/blob/master/java/jvm%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%A8%A1%E5%9E%8B.md)
 
+## kotlin 部分
+[kotlin 常用集合操作符](https://github.com/yxhuangCH/CSLearn/blob/master/kotlin/kotlin%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C%E7%AC%A6.md)
+
 ## ReactNative 部分
 [ReactNative 与 Android 之间的通信](https://github.com/yxhuangCH/CSLearn/blob/master/ReactNative/ReactNative%20%E4%B8%8E%20Android%20%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1.md)
 
