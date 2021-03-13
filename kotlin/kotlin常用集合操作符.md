@@ -242,6 +242,41 @@ Teacher(times=18, age=28)
 Teacher(times=10, age=26)
 Teacher(times=2, age=2)
 
+
+### 5.indexOfFirst 
+
+indexOfFirst 返回第一个符合条件的 index
+
+源码
+
+```kotlin
+/**
+ * Returns index of the first element matching the given [predicate], or -1 if the list does not contain such element.
+ */
+public inline fun <T> List<T>.indexOfFirst(predicate: (T) -> Boolean): Int {
+    var index = 0
+    for (item in this) {
+        if (predicate(item))
+            return index
+        index++
+    }
+    return -1
+}
+```
+
+例子：
+
+```kotlin
+val firstIndex = allHumans.indexOfFirst {
+    it is Teacher && it.age == 28
+}
+println("-------- firstIndex $firstIndex ")
+```
+输出是
+> -------- firstIndex 5
+
+
+
 # 完整代码
 
 ```koltin
