@@ -1,6 +1,6 @@
-#个人涉及到的计算机知识汇总
+# 个人涉及到的计算机知识汇总
 
-##一. Android 部分
+## 一. Android 部分
 [Android 权限](https://github.com/yxhuangCH/CSLearn/blob/master/android/Android%20%E6%9D%83%E9%99%90.md)
 
 [Flux设计模式在 Android 中的引用](https://github.com/yxhuangCH/CSLearn/blob/master/android/FluxAndroid.md)
