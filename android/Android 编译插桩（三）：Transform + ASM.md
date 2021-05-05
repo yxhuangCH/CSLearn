@@ -273,7 +273,7 @@ analytics {
 
 完成代码已上传到 github, https://github.com/yxhuangCH/AndroidNormal
 
-## 参考****
+## 参考
 - [王灼洲 ·《Android 全埋点解决方案》](https://book.douban.com/subject/33400077/)
 
 
