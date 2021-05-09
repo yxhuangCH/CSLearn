@@ -34,7 +34,10 @@
 
 [Android 内存优化（二）](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_memory/Android%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96(%E4%BA%8C).md)
 
-#### 4. Android View 部分
+#### 4.Android Native Hook
+[Android Native Hook 前言](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_hook/android_native_hook_pre.md)
+
+#### 5. Android View 部分
 
 [CoordinatorLayout 与 Behavior](https://github.com/yxhuangCH/CSLearn/blob/master/android/CoordinatorLayout%E4%B8%8EBehavior.md)
 
