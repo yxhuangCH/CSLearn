@@ -1,5 +1,6 @@
 [TOC]
 
+
 Android Native Hook 分成
 
 - GOT/PLT Hook 
@@ -275,7 +276,13 @@ mprotect((uint32_t) PAGE_START(mem_page_start), page_size,
 __builtin___clear_cache((void *) PAGE_START(mem_page_start),
 ```
 
-**缺流程图**
+
+ <img src="img/native_hook_7.png" width="100%" height="100%">
+ 导入表Hook流程图, 来源 [Android平台导入表Hook方式实现](https://gslab.qq.com/article-169-1.html)
+
+完整的代码，已放到 [github](https://github.com/yxhuangCH/AndroidDemo/tree/master/AndroidNativeHook)
+
+
 
 # 三、优缺点及应用
 
@@ -298,7 +305,6 @@ size_t new_fwrite(const void *buf, size_t size, size_t count, FILE *fp) {
     return old_fwrite(buf, size, count, fp);
 }
 ```
-
 
 # 四、其他
 
