@@ -348,7 +348,27 @@ void *xhook_write(const char *path, const char *text){
 
  <img src="img/native_hook_6.png" width="100%" height="100%">
  
+## 4.2 xhook hook 的简要流程
 
+```
+xhook_register --> xh_core_register(...) 
+
+xhook_refresh --> xh_core_init_once()
+				  xh_core_refresh_impl()
+
+
+xh_core_init_once --> xh_core_add_sigsegv_handler()
+
+
+xh_core_refresh_impl --> xh_core_check_elf_header()
+ 						  xh_core_hook()
+ 						  xh_core_hook_impl()
+
+
+xh_core_hook_impl --> xh_elf_init()
+					  xh_elf_hook()
+
+```
 
 
 # 参考
