@@ -86,7 +86,7 @@ public @Nullable Converter<?, RequestBody> requestBodyConverter(
 
  CallAdapter 将 okhttp.Call 转换成 Retrofit.Call
 
- <img src="retrofit_img/retrofit_3.png" width="70%" height="60%">
+ <img src="retrofit_img/retrofit_4.png" width="70%" height="60%">
 
 Retrofit.Call 通过代理，将所有对 Call 的方法转为为对  okhttp3.Call 的调用
  
