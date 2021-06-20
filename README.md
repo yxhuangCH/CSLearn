@@ -7,6 +7,8 @@
 
 [Android 动态链接库 So 的加载](https://github.com/yxhuangCH/CSLearn/blob/master/android/AndroidSo%E5%8A%A0%E8%BD%BD%E8%BF%87%E7%A8%8B.md)
 
+[Android Handler](https://github.com/yxhuangCH/CSLearn/blob/master/android/Android_handler.md)
+
 ### Android 进阶系列
 #### 1. Android 卡顿
 [Android 卡顿（一）：总述](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_block/Android%E5%8D%A1%E9%A1%BF-%E6%80%BB%E8%BF%B0.md)
@@ -85,8 +87,10 @@
 
 [运行时刻环境](https://github.com/yxhuangCH/CSLearn/blob/master/compilers/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%88%BB%E7%8E%AF%E5%A2%83.md)
 
+## 八、第三个库
+[Retrofit](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/Retrofi%E6%89%8B%E7%A8%BF.md)
 
-## 八、读书笔记部分
+## 九、读书笔记部分
 ### 1.[《修改软件的艺术-构建易维护代码的9条最佳实践》](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/01%E4%BF%AE%E6%94%B9%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%89%BA%E6%9C%AF.md)
 
 ### 2.《程序员的自我修养》

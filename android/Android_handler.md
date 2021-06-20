@@ -212,7 +212,7 @@ public static @Nullable Looper myLooper() {
 
 ### 4. MessageQueue 和 Message
 
-<img src="image/android_handle_1.png"  width="70%" height="70%">
+<img src="image/android_handler_1.png"  width="70%" height="70%">
 
 MessageQueue 是一个消息队列， Handler 将 Message 发送到消息队列中，消息按照一定规则取出要执行 Message. Message 添加到队列时，是将 Handler 和 Looper 关联一起的。
 
@@ -233,7 +233,7 @@ private boolean enqueueMessage(@NonNull MessageQueue queue, @NonNull Message msg
 MessageQueue 里的 message 是按时间排序的，越早加入队列的消息放到队列头部，优先执行。
 存在 MessageQueue 里的消息可能有三种：同步消息、异步消息、屏障消息。
 
-<img src="image/android_handle_2.png"  width="70%" height="70%">
+<img src="image/android_handler_2.png"  width="70%" height="70%">
 
 ### 4.1 同步消息
 
@@ -297,7 +297,7 @@ private int postSyncBarrier(long when) {
     }
 }
 ```
-<img src="image/android_handle_3.png"  width="70%" height="70%">
+<img src="image/android_handler_3.png"  width="70%" height="70%">
 
 - 删除屏障消息
 
