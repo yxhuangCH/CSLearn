@@ -2,121 +2,7 @@
 
 # 1. 简单的类图
 
-```plantuml
-@startuml
-class Retrofit{
-    serviceMethodCache: ConcurrentHashMap
-    baseUrl:HttpUrl
-    callFactory: okhttp3.Call.Factory
-    converterFactories: List<Converter.Factory>
-    callAdapterFactories: List<CallAdapter.Factory>
-    callbackExecutor: Executor
-    validateEagerly: boolean
-    
-    <T> T create(final Class<T> service)
-    void validateServiceInterface(Class<?> service) 
-
-    loadServiceMethod(Method method)：ServiceMethod<?>
-}
-
-interface Call.Factory{
-
-     Call newCall(Request request)
-}
-
-interface Cloneable
-
-interface Call{
-
-     Request request()
-     Response execute()
-     enqueue(Callback responseCallback)
-     cancel()
-     timeout():Timeout
-}
-
-Call.Factory ..> Call
-Call ..|> Cloneable
-
-Retrofit ..> Call.Factory
-Retrofit ..> Converter.Factory
-Retrofit ..> CallAdapter.Factory
-Retrofit ..> Executor
-Retrofit ..> ServiceMethod
-
-interface Converter<F, T>{
-    T convert(F value)
-}
-
-abstract Converter.Factory{
-    + responseBodyConverter(Type,Annotation[], Retrofit):Converter<ResponseBody, ?>
-    + requestBodyConverter(Type,Annotation[], Retrofit) :Converter<?, RequestBody>
-    +  stringConverter(Type,Annotation[], Retrofit):Converter<?, String>
-
-   # getParameterUpperBound(index, ParameterizedType):Type 
-   # getRawType(Type):Class<?>
-} 
-Converter.Factory ..>Converter
-
-interface CallAdapter<R, T>{
-    responseType():Type
-    adapt(Call<R>): T
-}
-
-abstract CallAdapter.Factory{
-   + get(Type,Annotation[], Retrofit):CallAdapter<?, ?>
-   # getParameterUpperBound(index, ParameterizedType):Type
-   # getRawType(Type):Class<?>
-}
-CallAdapter.Factory ..>CallAdapter
-
-interface Executor{
-    execute(Runnable)
-}
-
-class MainThreadExecutor{
-    - handler:Handler
-}
-
-Executor <|-- MainThreadExecutor
-
-class Retrofit.Builder{
-
-}
-
-class Platform{
-    + get():Platform
-    # defaultCallbackExecutor():Executor
-    # defaultCallAdapterFactories(Executor):List<? extends CallAdapter.Factory>
-    # defaultConverterFactories():List<? extends Converter.Factory>
-}
-
-Platform <|-- Android
-Android --> MainThreadExecutor
-
-Retrofit.Builder ..> Platform
-Retrofit.Builder ..> Retrofit
-Retrofit.Builder ..> OkHttpClient
-
-abstract class ServiceMethod<T>{
-    + invoke(Object[])
-    + parseAnnotations(Retrofit, Method):<T> ServiceMethod<T>
-}
-ServiceMethod <|-- CallAdapted 
-ServiceMethod <|-- HttpServiceMethod
-
-HttpServiceMethod --> CallAdapter
-HttpServiceMethod --> Converter
-HttpServiceMethod --> CallAdapted
-
-class RequestFactory{
-
-}
-ServiceMethod --> RequestFactory
-
-@enduml
-
-```
+<img src="retrofit_img/retrofit_1.png"  width="100%" height="100%">
 
 # 2. 请求的时序图
 
@@ -148,40 +34,10 @@ List<Contributor> contributors = call.execute().body();
 ```
 
 时序图
- ## 3. 建立  Retrofit build 的过程
 
- ```plantuml
- @startuml
+## 3. 建立  Retrofit build 的过程
 
-group 初始化配置
- Retrofit -> Retrofit.Builder : new Builder()
- Retrofit.Builder -> Platform: get():Platform
- Platform -->   Retrofit.Builder:  Platform
- Retrofit.Builder -->Retrofit.Builder: ...进行一些配置
- Retrofit.Builder --> Retrofit.Builder: build() ①
-end 
-group 创建
-Client -> Retrofit:create(serive) ②
-Retrofit --> Retrofit: validateServiceInterface() 验证接口的有效性
-Retrofit --> Retrofit: loadServiceMethod(Method)
-Retrofit -> ServiceMethod:parseAnnotations(Retrofit, Method)
-ServiceMethod -> RequestFactory:parseAnnotations(Retrofit, Method) 生成 RequestFactory
-ServiceMethod -> HttpServiceMethod:parseAnnotations(Retrofit,Method,RequestFactory)
-HttpServiceMethod -> Retrofit:callAdapter(...): 生成 CallAdapter
-HttpServiceMethod -> Retrofit:responseBodyConverter(...): 生成 Converter
-HttpServiceMethod --> HttpServiceMethod :new CallAdapted(requestFactory, callFactory, responseConverter, callAdapter)
-end
-
-group 请求
-Retrofit --> Client: Call(返回一个 OkHttpCall)
-Client -> OkHttpCall:execute()
-OkHttpCall --> OkHttpCall:getRawCall():RealCall
-OkHttpCall -> RealCall:execute():Response ③
-OkHttpCall --> OkHttpCall: parseResponse():Response<T> ④
-end
-
- @enduml
- ```
+<img src="retrofit_img/retrofit_2.png"  width="100%" height="100%">
 
 在 ① build() 方面里面进行 Retrofit 的一下初始化配置
 ③ 是真正处理网络请求，使用 OkHttp 里面的东西，这里先默认返回
@@ -195,6 +51,7 @@ end
 Converter 是 Retrofit 的核心，会把请求的数据转换为网络请求的数据，
 网络回来的数据转换为需要的数据格式。
 它要配合 Converter$Factory 一起使用
+
 ```java 
 
 public interface Converter<F, T> {
@@ -221,10 +78,11 @@ public @Nullable Converter<?, RequestBody> requestBodyConverter(
 }
  
 ```
- <img src="retrofit_img/retrofit_2.png" width="70%" height="60%">
+
+ <img src="retrofit_img/retrofit_3.png" width="70%" height="60%">
 
 
- ### 4.2 CallAdapter
+### 4.2 CallAdapter
 
  CallAdapter 将 okhttp.Call 转换成 Retrofit.Call
 

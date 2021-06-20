@@ -87,7 +87,7 @@
 
 [运行时刻环境](https://github.com/yxhuangCH/CSLearn/blob/master/compilers/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%88%BB%E7%8E%AF%E5%A2%83.md)
 
-## 八、第三个库
+## 八、第三方库
 [Retrofit](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/Retrofi%E6%89%8B%E7%A8%BF.md)
 
 ## 九、读书笔记部分
