@@ -1,0 +1,41 @@
+
+Java崩溃的捕获
+
+设置　 Thread.setDefaultUncaughtExceptionHandler(this);
+需要采集的信息有：
+１.一下手机的基本信息，版本之类的
+２.
+
+
+
+https://github.com/ACRA/acra
+
+搭建自己的崩溃上报系统
+https://testerhome.com/topics/3982
+
+Android NativeCrash 捕获与解析
+https://juejin.cn/post/6932757164003950599#heading-14
+
+异常处理 - Native 层的崩溃捕获机制及实现
+https://juejin.cn/post/6931939584548798471
+
+
+
+命令
+
+/system/bin/logcat 系统抓取日志
+
+
+/proc/self/fd 获取进程文件描述符
+https://zhuanlan.zhihu.com/p/353785644
+
+
+
+tombstone 文件？
+
+发生FD泄漏？
+
+android dropbox?
+
+
+https://juejin.cn/post/6844904117207302151

@@ -535,9 +535,154 @@ public void removeIdleHandler(@NonNull IdleHandler handler) {
 
 ## 二、Hander 应用 HanderThread
 
+HandlerThread 本质上是一个 Thread, 它内部使用了 Handler, 通过 Handler　把异步任务推送给消息队列，从而达到不用重复创建多个　Thread,  即能将多个异步任务排队进行异步执行
+
+```java
+/**
+ * Call back method that can be explicitly overridden if needed to execute some
+ * setup before Looper loops.
+ */
+protected void onLooperPrepared() {
+}
+
+@Override
+public void run() {
+    mTid = Process.myTid();
+    Looper.prepare();
+    synchronized (this) {
+        mLooper = Looper.myLooper();
+        notifyAll();
+    }
+    Process.setThreadPriority(mPriority);
+    onLooperPrepared();
+    Looper.loop();
+    mTid = -1;
+}
+```
+
+如果不需要了， 需要调用 `quit` 或者 `quitSafely` 退出
+
+
 ## 三、Hander 应用 IntentService
+IntentService 是 Service 和 HandlerThread 是结合体，在 HandlerThread#onCreate 里面创建 Handler 和该 HandlerThread 绑定，然后在 onStart 方法以消息的形式发送给 HandlerThread 执行
+
+```java
+@Override
+public void onCreate() {
+    super.onCreate();
+    HandlerThread thread = new HandlerThread("IntentService[" + mName + "]");
+    thread.start();
+
+    mServiceLooper = thread.getLooper();
+    mServiceHandler = new ServiceHandler(mServiceLooper);
+}
+
+@Override
+public void onStart(@Nullable Intent intent, int startId) {
+    // 按顺序执行
+    Message msg = mServiceHandler.obtainMessage();
+    msg.arg1 = startId;
+    msg.obj = intent;
+    mServiceHandler.sendMessage(msg);
+}
+```
+
+在 handlerMessage 执行
+
+```java  
+
+private final class ServiceHandler extends Handler {
+    public ServiceHandler(Looper looper) {
+        super(looper);
+    }
+
+    @Override
+    public void handleMessage(Message msg) {
+        // 抽象方法
+        onHandleIntent((Intent)msg.obj);
+        // 这里会停止 Service
+        stopSelf(msg.arg1);
+    }
+}
+```
+停止后的 Service 通过 onDestroy 方法，停止 Handler
+
+```java
+@Override
+public void onDestroy() {
+    mServiceLooper.quit();
+}
+```
+
 
 ## 四、Handler.post 和 View.post
+
+获取 View 的宽高
+
+### View.post
+View.post 如果已经 attach 了，就会把 action post 到 handler 里面。如果还没有，就会先放到队列里面
+
+```java
+ public boolean post(Runnable action) {
+    
+    final AttachInfo attachInfo = mAttachInfo;
+    if (attachInfo != null) {
+        return attachInfo.mHandler.post(action);
+    }
+
+    getRunQueue().post(action);
+    return true;
+}
+```
+
+进入队列之后，后续等着被调用，HandlerActionQueue#executeActions 里面会调用
+
+```java
+public void executeActions(Handler handler) {
+    synchronized (this) {
+        final HandlerAction[] actions = mActions;
+        for (int i = 0, count = mCount; i < count; i++) {
+            final HandlerAction handlerAction = actions[i];
+            handler.postDelayed(handlerAction.action, handlerAction.delay);
+        }
+
+        mActions = null;
+        mCount = 0;
+    }
+}
+```
+而 HandlerActionQueue#executeActions  又是在
+在 View#dispatchAttachedToWindow 方法中被调用
+
+```java
+void dispatchAttachedToWindow(AttachInfo info, int visibility) {
+
+    ...
+    
+    if (mRunQueue != null) {
+        mRunQueue.executeActions(info.mHandler);
+        mRunQueue = null;
+    }
+    
+    ...
+}
+
+```
+所以，在 dispatchAttachedToWindow 之后
+
+```java
+private void performTraversals() {
+    ...
+    host.dispatchAttachedToWindow(mAttachInfo, 0);
+    ...
+    performMeasure();
+    ...
+    performLayout();
+    ...
+    performDraw();
+}
+```
+
 
 
 ## 五、参考
