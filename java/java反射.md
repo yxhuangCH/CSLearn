@@ -7,6 +7,12 @@ Java 反射是在 java.lang.reflect 包类，包含 Constructor、Method、Field
 | 方法 Method | Class.getMethods( ) Class.getDeclaredMethods( ) | getMethods( ) 返回自身和父类的方法; getDeclaredMethods( ) 只返回自身的方法 |
 | 变量 Field | Class.getFields( ) Class.getDeclaredFields( ) | getFields() 获取这个类和它父类的 public 成员变量; getDeclaredFields() 获取这个类和它父类的全部成员变量 |
 
+<br>
+
+**Java 反射的类图**
+<img src="img/java_reflect_tree.png">
+图片引用[《Kotlin 核心编程》](https://book.douban.com/subject/33419618/)
+
 ### 1.  通过反射创建类 Constructor
 #### 无参构造
 
