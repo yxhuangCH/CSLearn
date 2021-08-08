@@ -1,4 +1,5 @@
 #Android 中使用 APT
+
 APT（Annotation Processing Tool）注解处理器，是一种处理注解的工具。
 APT 在编译时期扫描源代码中的注解，开发中根据注解，利用 APT 自动生成 Java 代码，减少冗余代码和手动的代码输入，提高编码效率。
 
