@@ -43,7 +43,11 @@
 #### 4.Android Native Hook
 [Android Native Hook 前言](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_hook/android_native_hook_pre.md)
 
-#### 5. Android View 部分
+#### 5. Android 崩溃
+
+[Android 崩溃](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_crash/Android_Crash.md)
+
+#### 6. Android View 部分
 
 [CoordinatorLayout 与 Behavior](https://github.com/yxhuangCH/CSLearn/blob/master/android/CoordinatorLayout%E4%B8%8EBehavior.md)
 
