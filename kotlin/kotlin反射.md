@@ -535,4 +535,23 @@ fun main() {
 
 ```
 
+# 9. 问题
+
+## 9.1 打包混淆问题
+
+在打包混淆之后，如果出现问题
+
+```
+java.lang.IllegalStateException: No BuiltInsLoader implementation was found. Please ensure that the META-INF/services/ is not stripped from your application and that the Java virtual machine is not running under a security manager
+```
+
+这是由于混淆导致的，解决办法是在 proguard-rules.pro 中添加下面的规矩即可 
+
+```
+-keep class kotlin.reflect.jvm.internal.impl.**
+-keep class kotlin.Metadata  {*; }
+-keepclassmembers class kotlin.Metadata {    public <methods>;}
+```
+
+
 
