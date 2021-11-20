@@ -1,0 +1,89 @@
+
+JavaCrashHandler 捕获 Java 崩溃
+	handleException 处理 java 崩
+
+NativeHandler 捕获 native 崩溃
+
+
+
+系统函数
+
+prctl 函数
+
+execl(xc_crash_dumper_pathname, XCC_UTIL_XCRASH_DUMPER_FILENAME, NULL);
+
+alarm(30);
+
+open
+
+通过 pip 进程通信
+
+
+利用/proc/pid/maps 内存映射信息,可以查看进程的虚拟空间布局，从而获知当前使用内存的具体分布情况。
+/proc/[pid]/cmdline 是一个只读文件，包含进程的完整命令行信息
+/proc/[pid]/comm 包含进程的命令名
+/proc/%d/task
+/proc/[pid]/fd 是一个目录，包含进程打开文件的情况
+
+
+xc_crash_exec_dumper
+ ->
+
+
+
+ xc_fallback_get_emergency
+ 	-> xcc_util_get_dump_header
+ 	-> xc_fallback_get_process_thread
+ 		-> xcc_util_get_thread_name
+ 			-> xcc_util_get_process_thread_name
+
+	-> xc_fallback_get_signal
+		-> xcc_util_signal_has_si_addr
+
+	-> xc_fallback_get_regs
+
+	-> xc_fallback_get_backtrace
+		-> xcc_unwind_get
+			-> xcc_unwind_libcorkscrew_record 16 <=API<=21
+				-> unwind_backtrace_signal_arch
+				-> get_backtrace_symbols
+				-> release_my_map_info_list 释放
+				-> free_backtrace_symbols 
+			-> xcc_unwind_libunwind_record    22 <=API <=23
+			-> xcc_unwind_clang_record
+				-> _Unwind_Backtrace
+				-> xcc_unwind_clang_record_frame
+
+
+
+
+
+
+
+
+
+
+xcd_core.c#main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
