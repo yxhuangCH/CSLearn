@@ -27,20 +27,7 @@ Native 崩溃的捕获主要是两方面：
 
 ## 2.1 Native 崩溃捕获的时序
 
-```plantuml
-@startuml
-xcrash -> NativeHandler: initialize: 初始化 加载 xcrash.so
-NativeHandler -> xc_jni.c: xc_jni_init 初始化 ①
-xc_jni.c -> xc_common.c : xc_common_ini ②
-xc_jni.c -> xc_jni.c: 设置崩溃是 dump 线程白名单
-xc_jni.c -> xc_crash.c: xc_crash_init: ③
-
-xc_jni.c->xc_trace.c:xc_trace_init 初始化 trace 捕获 anr
-
-
-@enduml
-
-```
+<image src="image/xcrash_1.png">
 
 - **初始化**
 
@@ -216,67 +203,9 @@ int xcc_signal_crash_register(void (*handler)(int, siginfo_t *, void *))
 
 **xc_crash.c#xc_crash_signal_handler**
 
-```plantuml
-@startuml
-|主进程|
-start
-:xc_crash_signal_handler;
-:gettid; 
-note left: 获取线程 id
-:xc_common_open_crash_log;
-note left: create and open log file
-:xc_crash_spot;
-note left: 设置 crash 时的信息，\n包括崩溃时间，崩溃线程等 ①
-:xc_crash_fork;
-note left: fork 一个进程都用了 dump \n内容 xc_crash_exec_dumper ②
-|子进程|
-:xc_crash_exec_dumper;
-:pipe2;
-note right: set args pipe size
-:execl(libxcrash_dumper.so);
-note right: 加载 libxcrash_dumper.so 文件 ③
-:xcd_core#main; 
-note right: 从 xcd_core.c 的main方法开始执行 ④
-:xcd_core_read_args;
-note right: 读取参数
-:open log;
-:xcc_unwind_init;
-note right: 初始化堆栈回溯\n为了捕获 dump 子进程可能发生的崩溃
-:xcc_signal_crash_register;
-note right: 注册 signal\n为了捕获 dump 子进程可能发生的崩溃
-:xcd_process_create;
-note right: 统计崩溃进程的所有线程信息
-:xcd_process_suspend_threads;
-note right: 挂起所有的线程
-:xcd_process_load_info; 
-note right: 获取进程的信息，包含进程、线程和内存映射信息 ⑤
-:xcd_sys_record;
-note right: 记录系统信息，包含 ABI Version 版本等
-:xcd_process_record;
-note right: 记录进程信息 ⑥
-:xcd_process_resume_threads;
-note right: 恢复所有的线程
+<image src="image/xcrash_2.png">
+<image src="image/xcrash_3.png">
 
-|主进程|
-:xc_crash_check_backtrace_valid;
-note left:检测生成的backtrace\n堆栈回溯是否有效
-if(dump_ok) is (no ok) then
-:xc_fallback_get_emergency;
-note left:获取一些公共信息，\n例如版本、手机品牌等信息
-:xc_fallback_record;
-note left: xcc_util_record_logcat 获取日志\nxcc_util_record_fds 文件句柄\nxcc_util_record_network_info 网络\nxcc_meminfo_record 内存map 等信息
-endif
-if(xc_crash_log_fd) is ( >0 ) then
-:xc_xcrash_record_java_stacktrace;
-note left: 获取 java 的堆栈信息
-endif
-:xc_crash_callback;
-note left: jni 回调，回调到 \nNativeHandler#crashCallback 方法
-stop
-
-@enduml
-
-```
 ### xc_crash_spot
 ① 设置 crash 时的信息、包括崩溃时间、崩溃线程等
 
@@ -623,17 +552,7 @@ fileObserver = new FileObserver("/data/anr/", CLOSE_WRITE) {
 ```
 对于大于及 21 版本以上的，则在 xc_trace.c 中
 
-```plantuml
-@startuml
-xc_jni.c -> xc_trace.c:xc_trace_init 初始化
-xc_trace.c --> xc_trace.c:xc_trace_init_callback 设置回调
-xc_trace.c --> xc_trace.c:eventfd 创建文件句柄
-xc_trace.c --> xc_signal.c:xcc_signal_trace_register ① 注册监听
-xc_trace.c --> xc_trace.c:pthread_create ②创建 dump 线程
-
-@enduml
-
-```
+<image src="image/xcrash_4.png">
 
 ```c
 int xc_trace_init(...)
