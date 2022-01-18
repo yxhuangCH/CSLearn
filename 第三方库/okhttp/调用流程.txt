@@ -1,0 +1,35 @@
+
+
+OkHttpClient#newCall
+
+	-> new RealCall()
+
+		-> RealCall#execute :Response
+								开始定时
+
+			->Dispatcher#executed(RealCall)
+				-> Dispatcher#readyAsyncCalls() 添加到队列
+				-> Dispatcher#promoteAndExecute()
+				-> readyAsyncCalls.iterator() 从队列里那次 call
+
+					-> RealCall#executeOn(ExecutorService)
+
+						-> AsyncCall#run()
+							-> RealCall#getResponseWithInterceptorChain()
+
+
+
+
+			-> RealCall#getResponseWithInterceptorChain()
+
+
+
+
+
+
+
+RealCall#getResponseWithInterceptorChain() 添加拦截器，所有的网络请求都在这里
+
+
+
+RealInterceptorChain 为什么要用 copy?
