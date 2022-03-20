@@ -23,7 +23,7 @@
 
 
 #### 2. Android 插桩
-[Android 中使用 APT](https://github.com/yxhuangCH/CSLearn/blob/master/android/Android%20%E4%B8%AD%E4%BD%BF%E7%94%A8%20APT.md)
+[2.1 Android 中使用 APT](https://github.com/yxhuangCH/CSLearn/blob/master/android/Android%20%E4%B8%AD%E4%BD%BF%E7%94%A8%20APT.md)
 
 [Aspectj 在Android中的使用](https://github.com/yxhuangCH/CSLearn/blob/master/android/Aspectj%20%E5%9C%A8Android%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8.md)
 
@@ -53,68 +53,70 @@
 
 
 ## 二、Java 部分
-[Java 中的注解](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%20%E6%B3%A8%E8%A7%A3.md)
+[2.1 Java 中的注解](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%20%E6%B3%A8%E8%A7%A3.md)
 
-[Java 的内存模型](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.md)
+[2.2 Java 的内存模型](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%20%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B.md)
 
-[Java 的反射](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%E5%8F%8D%E5%B0%84.md)
+[2.3 Java 的反射](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%E5%8F%8D%E5%B0%84.md)
 
-[ReentrantLock、synchronized 与 ReadWriteLock](https://github.com/yxhuangCH/CSLearn/blob/master/java/ReentrantLock%20sychronized%20%E4%B8%8EReadWriteLock.md)
+[2.4 ReentrantLock、synchronized 与 ReadWriteLock](https://github.com/yxhuangCH/CSLearn/blob/master/java/ReentrantLock%20sychronized%20%E4%B8%8EReadWriteLock.md)
 
-[JVM(一) - Java字节码](https://github.com/yxhuangCH/CSLearn/blob/master/java/Java%E5%AD%97%E8%8A%82%E7%A0%81.md)
+[2.5 JVM(一) - Java字节码](https://github.com/yxhuangCH/CSLearn/blob/master/java/Java%E5%AD%97%E8%8A%82%E7%A0%81.md)
 
-[JVM(二) - Java Class 文件](https://github.com/yxhuangCH/CSLearn/blob/master/java/JvmClass%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.md)
+[2.6 JVM(二) - Java Class 文件](https://github.com/yxhuangCH/CSLearn/blob/master/java/JvmClass%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84.md)
 
-[JVM(三) - 类加载器](https://github.com/yxhuangCH/CSLearn/blob/master/java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8.md)
+[2.7 JVM(三) - 类加载器](https://github.com/yxhuangCH/CSLearn/blob/master/java/%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8.md)
 
-[JVM(四) - 类的生命周期](https://github.com/yxhuangCH/CSLearn/blob/master/java/%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md)
+[2.8 JVM(四) - 类的生命周期](https://github.com/yxhuangCH/CSLearn/blob/master/java/%E7%B1%BB%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md)
 
-[JVM(五) - 连接模型](https://github.com/yxhuangCH/CSLearn/blob/master/java/jvm%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%A8%A1%E5%9E%8B.md)
+[2.9 JVM(五) - 连接模型](https://github.com/yxhuangCH/CSLearn/blob/master/java/jvm%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%A8%A1%E5%9E%8B.md)
 
 ## 三、kotlin 部分
-[kotlin 常用集合操作符](https://github.com/yxhuangCH/CSLearn/blob/master/kotlin/kotlin%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C%E7%AC%A6.md)
+[3.1 kotlin 常用集合操作符](https://github.com/yxhuangCH/CSLearn/blob/master/kotlin/kotlin%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C%E7%AC%A6.md)
 
-[kotlin 反射](https://github.com/yxhuangCH/CSLearn/blob/master/kotlin/kotlin%E5%8F%8D%E5%B0%84.md)
+[3.2 kotlin 反射](https://github.com/yxhuangCH/CSLearn/blob/master/kotlin/kotlin%E5%8F%8D%E5%B0%84.md)
 
 ## 四、ReactNative 部分
-[ReactNative 与 Android 之间的通信](https://github.com/yxhuangCH/CSLearn/blob/master/ReactNative/ReactNative%20%E4%B8%8E%20Android%20%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1.md)
+[4.1 ReactNative 与 Android 之间的通信](https://github.com/yxhuangCH/CSLearn/blob/master/ReactNative/ReactNative%20%E4%B8%8E%20Android%20%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1.md)
 
 ## 五、架构部分
-[Flux 框架](https://github.com/yxhuangCH/CSLearn/blob/master/%E6%9E%B6%E6%9E%84/Flux.md)
+[5.1 Flux 框架](https://github.com/yxhuangCH/CSLearn/blob/master/%E6%9E%B6%E6%9E%84/Flux.md)
 
-[如何写技术文档](https://github.com/yxhuangCH/CSLearn/blob/master/%E6%9E%B6%E6%9E%84/%E5%A6%82%E4%BD%95%E5%86%99%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3.md)
+[5.2 如何写技术文档](https://github.com/yxhuangCH/CSLearn/blob/master/%E6%9E%B6%E6%9E%84/%E5%A6%82%E4%BD%95%E5%86%99%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3.md)
 
-[软件设计模板](https://github.com/yxhuangCH/CSLearn/blob/master/%E6%9E%B6%E6%9E%84/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E6%A8%A1%E6%9D%BF.md)
+[5.3 软件设计模板](https://github.com/yxhuangCH/CSLearn/blob/master/%E6%9E%B6%E6%9E%84/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E6%A8%A1%E6%9D%BF.md)
 
 ## 六、设计模式
 
-[State 模式](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/State%E6%A8%A1%E5%BC%8F.md)
+[6.1 State 模式](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/State%E6%A8%A1%E5%BC%8F.md)
 
-[Stratey 模式](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Stratey%20%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.md)
+[6.2 Stratey 模式](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Stratey%20%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F.md)
 
-[设计模式总结](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93.md)
+[6.3 设计模式总结](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93.md)
 
-[软件设计原则（一）： 依赖倒置原则](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%EF%BC%88%E4%B8%80%EF%BC%89%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99.md)
+[6.4 软件设计原则（一）： 依赖倒置原则](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%EF%BC%88%E4%B8%80%EF%BC%89%E4%BE%9D%E8%B5%96%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99.md)
 
 
 ## 七、编译原理部分
 
-[运行时刻环境](https://github.com/yxhuangCH/CSLearn/blob/master/compilers/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%88%BB%E7%8E%AF%E5%A2%83.md)
+[7.1 运行时刻环境](https://github.com/yxhuangCH/CSLearn/blob/master/compilers/%E8%BF%90%E8%A1%8C%E6%97%B6%E5%88%BB%E7%8E%AF%E5%A2%83.md)
 
-## 八、第三方库
+## 八、数据结构与算法
+[8.1 递归](https://github.com/yxhuangCH/CSLearn/blob/master/algorithms/%E9%80%92%E5%BD%92.md)
 
-[Retrofit](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/Retrofi%E6%89%8B%E7%A8%BF.md)
+## 九、第三方库
 
-[xCrash分析](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/xcrash/xcrash%E5%88%86%E6%9E%90.md)
+[9.1 Retrofit](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/Retrofi%E6%89%8B%E7%A8%BF.md)
 
-## 九、读书笔记部分
-### 1.[《修改软件的艺术-构建易维护代码的9条最佳实践》](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/01%E4%BF%AE%E6%94%B9%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%89%BA%E6%9C%AF.md)
+[9.2 xCrash分析](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/xcrash/xcrash%E5%88%86%E6%9E%90.md)
 
-### 2.《程序员的自我修养》
+## 十、读书笔记部分
+### 10.1 [《修改软件的艺术-构建易维护代码的9条最佳实践》](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/01%E4%BF%AE%E6%94%B9%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%89%BA%E6%9C%AF.md)
+
+### 10.2《程序员的自我修养》
 - [1. 前言](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/01%20%E5%89%8D%E8%A8%80.md)
 - [2.目标文件](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/02%20%E7%AC%AC%E4%B8%89%E7%AB%A0%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6.md)
 - [3.静态链接](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/03%E7%AC%AC%E5%9B%9B%E7%AB%A0%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5.md)
 - [4.可执行文件的装载与进程](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/04%20%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E7%9A%84%E8%A3%85%E8%BD%BD%E4%B8%8E%E8%BF%9B%E7%A8%8B.md)
-
 - [5.动态链接](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/05%20%E7%AC%AC%E4%B8%83%E7%AB%A0%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5.md)
 
