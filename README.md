@@ -110,10 +110,13 @@
 
 [9.2 xCrash分析](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/xcrash/xcrash%E5%88%86%E6%9E%90.md)
 
-## 十、读书笔记部分
-### 10.1 [《修改软件的艺术-构建易维护代码的9条最佳实践》](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/01%E4%BF%AE%E6%94%B9%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%89%BA%E6%9C%AF.md)
+## 十、IDE
+[10.1 Git 常用命令](https://github.com/yxhuangCH/CSLearn/blob/master/IDE/Git%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.md)
 
-### 10.2《程序员的自我修养》
+## 十一、读书笔记部分
+### 11.1 [《修改软件的艺术-构建易维护代码的9条最佳实践》](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/01%E4%BF%AE%E6%94%B9%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%89%BA%E6%9C%AF.md)
+
+### 11.2《程序员的自我修养》
 - [1. 前言](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/01%20%E5%89%8D%E8%A8%80.md)
 - [2.目标文件](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/02%20%E7%AC%AC%E4%B8%89%E7%AB%A0%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6.md)
 - [3.静态链接](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/03%E7%AC%AC%E5%9B%9B%E7%AB%A0%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5.md)
