@@ -8,10 +8,21 @@ Android 工程师学习资料推荐
 - [《Android开发艺术探索》](https://book.douban.com/subject/26599538/)
 这本书是作为一个 Android 中级工程师的必学资料
 - [ Android 开发高手课](https://time.geekbang.org/column/intro/100021101?tab=catalog)
-这是前微信高级工程师，Tinker 负责人， 张绍文在极客时间上的专栏。这门课程的内容应该是每一位从事 Android 开发后续学习的路径图。
+这是前微信高级工程师，Tinker 负责人， 张绍文在极客时间上的专栏。这门课程的内容应该是每一位从事 Android 开发的人的后续学习的路径图。
 
 - [源码深度解析 Handler 机制及应用](https://www.cnblogs.com/vivotech/p/14072029.html)
 这是一篇对 Handler 讲述非常好的文章
+
+# Kotlin
+- [《Kotlin核心编程》](https://book.douban.com/subject/33419618/)
+这本书不是简单介绍 Kotlin 的语法，而是从原理语言设计目的出发进行阐述，如果想要推荐一本学习 Kotlin 的书，这本会是其中的一本。
+- [《深入理解Kotlin协程》](https://book.douban.com/subject/35094136/)
+这本书对 kotlin 协程挺不错的
+
+- [KotlinConf 2017 - Introduction to Coroutines](https://www.youtube.com/watch?v=_hfBv0a09Jc&list=PLv4xyPFRoTjMp0mRCCfacQ5u_leenwS1J&index=2)
+- [KotlinConf 2017 - Deep Dive into Coroutines on JVM](https://www.youtube.com/watch?v=YrrUCSi72E8&list=TLPQMTQwNTIwMjLLF3SiIaVeYQ&index=7)
+- [Kotlin Coroutines](https://github.com/Kotlin/KEEP/blob/master/proposals/coroutines.md)
+这三个是官方关于 Kotlin 协程的阐述，学习新知识，第一手资料非常重要，上面这三个就是关于  Kotlin 协程的第一手资料。
 
 # JVM 方面
 - [《深入Java虚拟机(原书第2版)》](https://book.douban.com/subject/1138768/)
@@ -32,12 +43,13 @@ Android 工程师学习资料推荐
 这是极客时间上一个关于设计模式不错的专栏
 - 李建忠 - C++设计模式
 这个课程视频也讲的很好，配合 《设计模式》这边书效果挺好的。
-这个没有具体的资料，需要自己搜索一下
+这个没有具体的链接的资料，需要自己搜索一下
 
 # 项目管理
 - [技术管理实战 36 讲](https://time.geekbang.org/column/intro/100014301?tab=catalog)
 这么课程是前百度最佳经理人，果见管理工作坊创始人，TGO 鲲鹏会会员，刘建国在极客时间上的课程，如果是作为新晋的一位技术管理人不错的指导
 - [汤君健·给中层的管理课30讲](https://www.dedao.cn/course/detail?id=lQr3o4dMw8ZKgdaswBV7N2xDyWeEq1)
+这是得到上一门不错的管理课
 
 # 沟通
 - [《沟通的方法》](https://book.douban.com/subject/35473807/)
