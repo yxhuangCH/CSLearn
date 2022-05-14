@@ -123,3 +123,6 @@
 - [4.可执行文件的装载与进程](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/04%20%E7%AC%AC%E5%85%AD%E7%AB%A0%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E7%9A%84%E8%A3%85%E8%BD%BD%E4%B8%8E%E8%BF%9B%E7%A8%8B.md)
 - [5.动态链接](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/05%20%E7%AC%AC%E4%B8%83%E7%AB%A0%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5.md)
 
+
+## 十二 学习资料
+- [Android 工程师学习资料](https://github.com/yxhuangCH/CSLearn/blob/master/%E5%85%B6%E4%BB%96/Android%20%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E8%B5%84%E6%96%99.md)
