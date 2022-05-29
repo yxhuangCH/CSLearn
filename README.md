@@ -11,8 +11,11 @@
 
 [Android Binder](https://github.com/yxhuangCH/CSLearn/blob/master/android/Android_Binder.md)
 
-### Android 进阶系列
-#### 1. Android 卡顿
+### 1.1 Jetpack
+[LiveData: Cannot add the same observer with different lifecycles](https://github.com/yxhuangCH/CSLearn/blob/master/kotlin/Cannot%20add%20the%20same%20observer%20with%20different%20lifecycles.md)
+
+### 1.2 Android 进阶系列
+#### 1.2.1 Android 卡顿
 [Android 卡顿（一）：总述](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_block/Android%E5%8D%A1%E9%A1%BF-%E6%80%BB%E8%BF%B0.md)
 
 [Android 卡顿（二）：Android Android Studio Profiler 的使用](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_block/Android%E5%8D%A1%E9%A1%BF-Profiler.md)
@@ -22,8 +25,8 @@
 [Android卡顿（四）：实现（二）](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_block/Android%E5%8D%A1%E9%A1%BF%E5%9B%9B-%E5%AE%9E%E7%8E%B0%EF%BC%88%E4%BA%8C%EF%BC%89.md)
 
 
-#### 2. Android 插桩
-[2.1 Android 中使用 APT](https://github.com/yxhuangCH/CSLearn/blob/master/android/Android%20%E4%B8%AD%E4%BD%BF%E7%94%A8%20APT.md)
+#### 1.2.2 Android 插桩
+[Android 中使用 APT](https://github.com/yxhuangCH/CSLearn/blob/master/android/Android%20%E4%B8%AD%E4%BD%BF%E7%94%A8%20APT.md)
 
 [Aspectj 在Android中的使用](https://github.com/yxhuangCH/CSLearn/blob/master/android/Aspectj%20%E5%9C%A8Android%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8.md)
 
@@ -35,19 +38,19 @@
 
 [Android 编译插桩（三）：Transform + ASM](https://github.com/yxhuangCH/CSLearn/blob/master/android/Android%20%E7%BC%96%E8%AF%91%E6%8F%92%E6%A1%A9%EF%BC%88%E4%B8%89%EF%BC%89%EF%BC%9ATransform%20%2B%20ASM.md)
 
-#### 3. Android 内存优化
+#### 1.2.3 Android 内存优化
 [Android 内存优化（一）](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_memory/Android%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96(%E4%B8%80).md)
 
 [Android 内存优化（二）](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_memory/Android%E5%86%85%E5%AD%98%E4%BC%98%E5%8C%96(%E4%BA%8C).md)
 
-#### 4.Android Native Hook
+#### 1.2.4 Android Native Hook
 [Android Native Hook 前言](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_hook/android_native_hook_pre.md)
 
-#### 5. Android 崩溃
+#### 1.2.5  Android 崩溃
 
 [Android 崩溃](https://github.com/yxhuangCH/CSLearn/blob/master/android/advanced_series/android_crash/Android_Crash.md)
 
-#### 6. Android View 部分
+#### 1.2.6 Android View 部分
 
 [CoordinatorLayout 与 Behavior](https://github.com/yxhuangCH/CSLearn/blob/master/android/CoordinatorLayout%E4%B8%8EBehavior.md)
 
@@ -131,3 +134,4 @@
 
 ## 十二 学习资料
 - [Android 工程师学习资料](https://github.com/yxhuangCH/CSLearn/blob/master/%E5%85%B6%E4%BB%96/Android%20%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E8%B5%84%E6%96%99.md)
+
