@@ -7,7 +7,69 @@ Koltin 协程 2
 
 ### 3.1 启动流程
 
-<img src="image/kotlin_corotinue_3.png">
+
+```plantuml
+
+@startuml
+actor Bob #red
+Bob -> CoroutineScope: launch
+
+CoroutineScope -> CoroutineContext.kt:newCoroutineContext()
+
+CoroutineScope ->StandaloneCoroutine:new(context)
+CoroutineScope ->StandaloneCoroutine:start(...)
+
+StandaloneCoroutine -> AbstractCoroutine:start()
+AbstractCoroutine --> AbstractCoroutine:initParentJob()
+
+AbstractCoroutine -> JobSupport:initParentJobInternal()
+
+AbstractCoroutine -> CoroutineStart:start()
+CoroutineStart --> CoroutineStart: invoke()
+CoroutineStart -> 协程体Cancellable.kt:startCoroutineCancellable()
+
+协程体Cancellable.kt --> SuspendLambda: jvm
+
+SuspendLambda --> SuspendLambda:create()
+note right: 调用生成的协程体的 create() 函数 ①
+
+SuspendLambda -> SuspendLambda:intercepted()
+
+note left: 将协程体实例分装为 DispatchedContinuation
+
+SuspendLambda -> DispatchedContinuation: resumeCancellableWith()
+
+DispatchedContinuation -> CoroutineDispatcher: dispatch() 
+
+
+CoroutineDispatcher -> ExperimentalCoroutineDispatcher:dispatch()
+
+ExperimentalCoroutineDispatcher -> CoroutineScheduler:dispatch() ②
+note right: 放到 CoroutineScheduler 线程池中执行
+
+CoroutineScheduler --> CoroutineScheduler:currentWorker 创建 Worker
+
+CoroutineScheduler -> Worker: submitToLocalQueue() 将 task 添加到本地队列
+CoroutineScheduler --> CoroutineScheduler:addToGlobalQueue 如果失败则放到全局队列
+
+Worker --> Worker: run()
+Worker --> Worker: runWorker()
+Worker --> Worker: executeTask()
+
+note left: 运行 task
+
+Worker -> DispatchedContinuation: run()
+
+DispatchedContinuation -> SuspendLambda: resume()
+SuspendLambda --> SuspendLambda:resumeWith()
+SuspendLambda --> SuspendLambda:invokeSuspend()
+
+note left:resumeWith, invokeSuspend 是 \nSuspendLambda 的父类 BaseContinuationImpl 的函数
+
+
+@enduml
+
+```
 
 说明：
 SuspendLambda 是协程体类对象，封装协程体的操作
