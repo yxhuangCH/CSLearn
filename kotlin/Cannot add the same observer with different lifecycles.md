@@ -278,7 +278,6 @@ L6
 
 后续使用的时候需要注意，避免在 lambda 的表达式内仅仅只使用 final 的静态变量或者静态函数。
 
-更近一步，智永看看能不能在 detekt 加上这个检测，避免类似的问题再次出现。
 
 ## 5. 参考
 - [Android lifecycle library: Cannot add the same observer with different lifecycles](https://stackoverflow.com/questions/47025233/android-lifecycle-library-cannot-add-the-same-observer-with-different-lifecycle)
