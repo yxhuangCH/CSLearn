@@ -112,19 +112,28 @@
 ## 八、数据结构与算法
 [8.1 递归](https://github.com/yxhuangCH/CSLearn/blob/master/algorithms/%E9%80%92%E5%BD%92.md)
 
-## 九、第三方库
+## 九、计算机网络
+### 9.1 应用层
+[计算机网络(一)：应用层协议](https://github.com/yxhuangCH/CSLearn/blob/master/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%B8%80)%E5%BA%94%E7%94%A8%E5%B1%82%E5%8D%8F%E8%AE%AE.md)
 
-[9.1 Retrofit](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/Retrofi%E6%89%8B%E7%A8%BF.md)
+[计算机网络(二)：HTTP 部分](https://github.com/yxhuangCH/CSLearn/blob/master/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%BA%8C)%EF%BC%9AHTTP%20%E9%83%A8%E5%88%86.md)
 
-[9.2 xCrash分析](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/xcrash/xcrash%E5%88%86%E6%9E%90.md)
+### 9.2 传输层
 
-## 十、IDE
-[10.1 Git 常用命令](https://github.com/yxhuangCH/CSLearn/blob/master/IDE/Git%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.md)
 
-## 十一、读书笔记部分
-### 11.1 [《修改软件的艺术-构建易维护代码的9条最佳实践》](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/01%E4%BF%AE%E6%94%B9%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%89%BA%E6%9C%AF.md)
+## 十、第三方库
 
-### 11.2《程序员的自我修养》
+[10.1 Retrofit](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/Retrofi%E6%89%8B%E7%A8%BF.md)
+
+[10.2 xCrash分析](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/xcrash/xcrash%E5%88%86%E6%9E%90.md)
+
+## 十一、IDE
+[11.1 Git 常用命令](https://github.com/yxhuangCH/CSLearn/blob/master/IDE/Git%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.md)
+
+## 十二、读书笔记部分
+### 12.1 [《修改软件的艺术-构建易维护代码的9条最佳实践》](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/01%E4%BF%AE%E6%94%B9%E8%BD%AF%E4%BB%B6%E7%9A%84%E8%89%BA%E6%9C%AF.md)
+
+### 12.2《程序员的自我修养》
 - [1. 前言](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/01%20%E5%89%8D%E8%A8%80.md)
 - [2.目标文件](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/02%20%E7%AC%AC%E4%B8%89%E7%AB%A0%E7%9B%AE%E6%A0%87%E6%96%87%E4%BB%B6.md)
 - [3.静态链接](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/03%E7%AC%AC%E5%9B%9B%E7%AB%A0%E9%9D%99%E6%80%81%E9%93%BE%E6%8E%A5.md)
@@ -132,6 +141,6 @@
 - [5.动态链接](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%BC%96%E7%A8%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/02%20%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E8%87%AA%E6%88%91%E4%BF%AE%E5%85%BB/05%20%E7%AC%AC%E4%B8%83%E7%AB%A0%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5.md)
 
 
-## 十二 学习资料
+## 十三、 学习资料
 - [Android 工程师学习资料](https://github.com/yxhuangCH/CSLearn/blob/master/%E5%85%B6%E4%BB%96/Android%20%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E8%B5%84%E6%96%99.md)
 
