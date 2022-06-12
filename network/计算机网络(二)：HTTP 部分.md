@@ -75,7 +75,9 @@ Content-Type: text/html                         ⑦
 
 ## Cookie
 HTTP 服务是无状态的， Web 服务器希望能够识别用户，或者希望把内容与用户身份联系起来。
+
 解决方案就是使用 Cookie, Cookie 允许站点对用户进行跟踪。
+
 它的缺点就是涉及到用户的隐私问题。
 
 <img src="imag/cookie.png">
@@ -89,6 +91,7 @@ Cookie 的四个组件：
 
 ##  WebCache
 Web Cache 是它能够代表原始服务器来满足 HTTP 请求的网络实体。
+
 CDN 是 Content Distribution Network, 内容分发网络。
 
 ### 需要 WebCache 的原因：
