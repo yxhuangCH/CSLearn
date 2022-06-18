@@ -118,6 +118,14 @@
 
 [计算机网络(二)：HTTP 部分](https://github.com/yxhuangCH/CSLearn/blob/master/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%BA%8C)%EF%BC%9AHTTP%20%E9%83%A8%E5%88%86.md)
 
+[计算机网络(三)：TCP Socket 编程](https://github.com/yxhuangCH/CSLearn/blob/master/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E4%B8%89)TCP%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B.md)
+
+[计算机网络(四)：UDP Socket 编程](https://github.com/yxhuangCH/CSLearn/blob/master/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E5%9B%9B)UDP%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BC%96%E7%A8%8B.md)
+
+[计算机网络 Wireshark 实验： HTTP](https://github.com/yxhuangCH/CSLearn/blob/master/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20Wireshark%20%E5%AE%9E%E9%AA%8C%EF%BC%9A%20HTTP.md)
+
+[计算机网络 Wireshark 实验： CDN](https://github.com/yxhuangCH/CSLearn/blob/master/network/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%20Wireshark%20%E5%AE%9E%E9%AA%8C%EF%BC%9A%20DNS.md)
+
 ### 9.2 传输层
 
 
