@@ -54,6 +54,13 @@
 
 [CoordinatorLayout 与 Behavior](https://github.com/yxhuangCH/CSLearn/blob/master/android/CoordinatorLayout%E4%B8%8EBehavior.md)
 
+### 1.3 Android Test 
+
+[Android测试基本内容](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Android%E6%B5%8B%E8%AF%95%E5%9F%BA%E6%9C%AC%E5%86%85%E5%AE%B9.md)
+
+[Mockk 使用例子](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/mockk.md)
+
+
 
 ## 二、Java 部分
 [2.1 Java 中的注解](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%20%E6%B3%A8%E8%A7%A3.md)

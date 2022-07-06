@@ -481,7 +481,9 @@ class RelaxedMockingTest {
 
 
 
-
+## 参考
+- [mockk 官方文档](https://mockk.io/)
+- [mockk 官方例子](https://github.com/mockk/mockk/tree/master/mockk/common/src/test/kotlin/io/mockk)
 
 
 
