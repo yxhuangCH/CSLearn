@@ -2,7 +2,33 @@ Mockk 常用的功能
 
 [toc]
 
+## 注意事项
 
+如果在有时候使用了静态的方式 mock 了对象，如果在最后放了执行 clearMock 或者 unmockkAll 函数，会导致对象泄露，造成其他其他 test 失败。
+
+包含：
+
+```kotlin
+@Before
+fun setup(){
+    mockkConstructor()
+    mockkStatic()
+    mockkObject()
+}
+
+@After
+fun teardown(){
+    unmockkConstructor()
+    unmockkObject()
+    unmockkObject()
+
+    // 或者
+    unmockkAll()
+}
+```
+
+或者升级到 junit5, 会自动释放
+https://github.com/mockk/mockk/pull/739
 
 ## Spy
 mock 一个真实的对象
@@ -221,6 +247,16 @@ class PrivateFunctionsTest {
         fun y() = x()
 
         private fun x() = "abc"
+        
+        fun a(genericsClass: GenericsClass) {
+            z(genericsClass) {
+                println(" it: $it")
+            }
+        }
+
+        private fun z(genericsClass: GenericsClass, callback: (Boolean) -> Unit) {
+
+        }
     }
 
     @Test
@@ -234,6 +270,22 @@ class PrivateFunctionsTest {
         verifySequence {
             abc.y()
             abc["x"]()
+        }
+    }
+    
+     @Test
+    fun testPrivateMethodWithHigherOrderFunctionArg() {
+        val abc = spyk(Abc(), recordPrivateCalls = true)
+        val callback: (Boolean) -> Unit = mockk(relaxed = true)
+        val genericsClass = mockk<GenericsClass>()
+
+        justRun { abc invoke "z" withArguments listOf(genericsClass, callback)}
+
+        abc.a(genericsClass)
+
+        verifySequence {
+            abc.a(genericsClass)
+            abc["z"](any<GenericsClass>(), any<(Boolean) -> Unit>())
         }
     }
 
