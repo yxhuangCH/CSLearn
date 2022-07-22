@@ -488,4 +488,6 @@ class MainViewModelTest {
 
 # 参考
 - [kotlinx-coroutines-test](https://github.com/Kotlin/kotlinx.coroutines/tree/version-1.4.1/kotlinx-coroutines-test)
+- [Unit Testing with Kotlin Coroutines: The Android Way](https://medium.com/swlh/unit-testing-with-kotlin-coroutines-the-android-way-19289838d257)
+- [Kotlin Coroutines in Android — Unit Test](https://medium.com/swlh/kotlin-coroutines-in-android-unit-test-28ff280fc0d5)
 
