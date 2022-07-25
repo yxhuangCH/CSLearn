@@ -56,9 +56,17 @@
 
 ### 1.3 Android Test 
 
-[Android测试基本内容](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Android%E6%B5%8B%E8%AF%95%E5%9F%BA%E6%9C%AC%E5%86%85%E5%AE%B9.md)
+[Android 测试基本内容](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Android%E6%B5%8B%E8%AF%95%E5%9F%BA%E6%9C%AC%E5%86%85%E5%AE%B9.md)
+
+[JUnit4](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/JUnit4.md)
+
+[单元测试](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.md)
 
 [Mockk 使用例子](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/mockk.md)
+
+[Android UI Test](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/android-UI-Test.md)
+
+[Android Coroutine Test](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Android-Coroutine-Test.md)
 
 
 
