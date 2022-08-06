@@ -494,6 +494,7 @@ class NullsTest {
 ```
 
 ## 测试 Relaxed 
+MockK’s relaxed mocks are useful if the class under test uses a certain object, but you don’t want to define the behavior of this mock because it’s not relevant for the test. A relaxed mock returns dummy objects containing empty values.
 
 ```kotlin
 class RelaxedMockingTest {
