@@ -31,6 +31,11 @@ Note: A View text property is never null. If you call TextView.setText(CharSeque
 
 链接：https://developer.android.com/reference/androidx/test/espresso/matcher/ViewMatchers
 
+### ActivityScenarioRule
+ActivityScenarioRule launches a given activity before the test starts and closes after the test.
+
+链接：https://developer.android.com/reference/androidx/test/ext/junit/rules/ActivityScenarioRule
+
 ## 1. Espresso 依赖
 
 ```gradle
