@@ -1,7 +1,8 @@
-https://developer.android.com/guide/fragments/test
 
 Espresso Fragment Test
+
 这是 Espresso 的第二篇，Fragment 的 UI 测试。
+
 它包括两部分内容， 一是测试 fragment 的 UI 测试，另外一部分是 fragment 的跳转测试。
 
 参考代码来源：[youtube 视频Fragments in Isolation Espresso Testing (Espresso for Beginners PART 6)](https://www.youtube.com/watch?v=VuPU6yG0uwg&list=PLgCYzUzKIBE_ZuZzgts135GuLQNX5eEPk&index=7)
