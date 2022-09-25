@@ -76,6 +76,8 @@
 
 [Espresso 4: Intent](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Espresso-Intent.md)
 
+[Espresso 5: Toast](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Espresso-4-toast.md)
+
 
 ## 二、Java 部分
 [2.1 Java 中的注解](https://github.com/yxhuangCH/CSLearn/blob/master/java/java%20%E6%B3%A8%E8%A7%A3.md)
