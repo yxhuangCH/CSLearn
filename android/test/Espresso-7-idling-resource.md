@@ -4,7 +4,7 @@ Espresso idling resource
 
 [toc]
 
-这是 Espresso UI 测试系列的第六篇文章。这篇主要是讲述 idling resources 的测试。
+这是 Espresso UI 测试系列的第七篇文章。这篇主要是讲述 idling resources 的测试。
 
 代码来源于 youtube 视频：https://www.youtube.com/watch?v=_96FT7E6PL4&list=PLgCYzUzKIBE_ZuZzgts135GuLQNX5eEPk&index=15&t=4s
 
