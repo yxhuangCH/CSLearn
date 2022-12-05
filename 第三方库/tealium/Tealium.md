@@ -14,17 +14,9 @@ Tealium 分析， 以 1.2.4 版本为例
 
 ## 1.1 初始化流程
 
-```plantuml
-@startuml
+<image src="imag/tealium_1.png">
 
-Client -> TealiumConfig: new ①
-Client -> Tealium:create(TealiumConfig) ②
-Tealium --> Tealium:new 
-Tealium --> Tealium: init ③
 
-@enduml
-
-```
 说明：
 ① new 一个 TealiumConfig, 进行 Tealium 的一些配置
 
@@ -111,45 +103,7 @@ class TealiumConfig @JvmOverloads constructor(val application: Application,
 ## 1.2 发送数据流程
 以 track TealiumEvent 主要流程分析
 
-```plantuml
-@startuml
-Client -> TealiumEvent:new(eventName, data)
-Client -> Tealium: track(Dispatch)
-Tealium -> GenericDispatch:new(Dispatch)  ①
-GenericDispatch --> Tealium: dispatchCopy
-
-Tealium -> SessionManager:track(Dispatch)  ②
-
-Tealium -> DispatchRouter:track(Dispatch)  ③
-
-DispatchRouter --> DispatchRouter:collect()   
-TealDispatchRouterium -> GenericDispatch: addAll()        ④
-
-DispatchRouter --> DispatchRouter:transform(Dispatch) ⑤
-
-DispatchRouter --> DispatchRouter:shouldDrop(Dispatch)    ⑥
-
-DispatchRouter -> EventDispatcher: onDispatchReady(Dispatch) ⑦
-
-DispatchRouter --> DispatchRouter: shouldQueue()  ⑧
-
-DispatchRouter --> DispatchRouter: dequeue() ⑨
-
-DispatchRouter --> DispatchRouter: sendDispatches(List<Dispatch>) ⑩
-
-DispatchRouter -> CollectDispatcher:onDispatchSend(Dispatch)
-
-
-CollectDispatcher -> HttpClient:post()  11
-HttpClient -> HttpURLConnection
-
-HttpClient -> CollectDispatcher: onNetworkResponse()
-
-
-@enduml
-
-
-```
+<image src="imag/tealium_2.png">
 
 ① GenericDispatch 也是继承 Dispatch,它的 payload 是从传入的 dispatch 进行复制
 
@@ -310,89 +264,8 @@ Dispatcher 里面包含用于分发事件的 TealiumEvent 和 TealiumView，以�
 **Collection**
 Collection 里面的 Collector 是用于收集一些信息
 
-```plantuml
-@startuml
+<image src="imag/tealium_3.png">
 
-interface Collector {
-    suspend fun collect(): Map<String, Any>
-}
-
-interface AppData {
-    val appUuid: String
-    val appRdns: String
-    val appName: String
-    val appBuild: String
-    val appVersion: String
-    val appMemoryUsage: Long
-}
-
-Collector <|-- AppData
-AppData <|-- AppCollector
-
-interface ConnectivityData {
-    val carrier: String
-    val carrierIso: String
-    val carrierMcc: String
-    val carrierMnc: String
-}
-
-ConnectivityData <|-- ConnectivityCollector 
-Collector <|-- ConnectivityData
-
-interface DeviceData {
-    val device: String
-    val deviceModel: String
-    val deviceManufacturer: String
-    val deviceArchitecture: String
-    val deviceCpuType: String
-    val deviceResolution: String
-    val deviceRuntime: String
-    val deviceOrigin: String
-    val devicePlatform: String
-    val deviceOsName: String
-    val deviceOsBuild: String
-    val deviceOsVersion: String
-    val deviceAvailableSystemStorage: Long
-    val deviceAvailableExternalStorage: Long
-    val deviceOrientation: String
-    val deviceLanguage: String
-}
-
-DeviceData <|-- DeviceCollector
-Collector <|-- DeviceCollector
-
-interface TealiumData {
-    val account: String
-    val profile: String
-    val environment: String
-    val dataSource: String?
-}
-
-TealiumData <|-- TealiumCollector 
-Collector <|-- TealiumCollector
-
-interface TimeData {
-    val timestamp: String
-    val timestampLocal: String
-    val timestampOffset: String
-    val timestampUnix: Long
-    val timestampUnixMilliseconds: Long
-}
-
-TimeData <|-- TimeCollector
-Collector <|-- TimeCollector
-
-Collector <|-- ModuleCollector 
-
-interface NewSessionListener {
-    fun onNewSession(sessionId: Long)
-}
-
-Collector <|-- SessionCollector
-NewSessionListener <|-- SessionCollector
-
-@enduml
-```
 - AppCollector: 收集 app 相关的信息，例如: appVersion
 - ConnectivityCollector: 收集网络连接的信息
 - DeviceCollector: 收集设备相关的信息
@@ -444,41 +317,7 @@ Visitor 模块 主要是用来管理 visitor 身份和属性相关内容
 
 主要的类图，有省略
 
-```plantuml
-@startuml
-
-interface Module {
-
-    val name: String
-
-    var enabled: Boolean
-}
-
-class VisitorService {
-    val name: String
-    var enabled: Boolean
-    val visitorProfile: VisitorProfile
-    fun requestVisitorProfile()
-}
-
-Module <|-- VisitorService
-VisitorService o-- TealiumContext
-VisitorService o-- VisitorProfileManager
-
-interface VisitorProfileManager {
-    val visitorProfile: VisitorProfile
-    suspend fun requestVisitorProfile()
-}
-
-class VisitorManager {
-
-
-}
-VisitorProfileManager <|-- VisitorManager
-
-@enduml
-
-```
+<image src="imag/tealium_4.png">
 
 
 ### 2.1.3 Crash reporter
@@ -520,82 +359,12 @@ tagmanagementdispatcher 是一个通过 webview 执行 JavaScript 的模块
 
 Dispatch 的相关类
 
-```plantuml
-@startuml
-interface Dispatch {
-    id: String
-    timestamp: Long?
-
-    fun payload(): Map<String, Any>
-    fun addAll(data: Map<String, Any>)
-    fun toJsonString(): String
-    fun encode(JSONStringer, String,Any)
-}
-
-class GenericDispatch {
-
-}
-
-Dispatch <|-- GenericDispatch 
-
-Dispatch <|-- JsonDispatch 
-
-Dispatch <|-- TealiumEvent 
-
-Dispatch <|-- TealiumView 
-
- Dispatch --o BatchDispatch
-
-@enduml
-
-```
+<image src="imag/tealium_5.png">
 
 ## 2.2 网络设计
 
-```plantuml
-@startuml
+<image src="imag/tealium_6.png">
 
-interface Connectivity {
-    fun isConnected(): Boolean
-
-    fun isConnectedWifi(): Boolean
-
-    fun connectionType(): String
-}
-
-Connectivity <|-- ConnectivityRetriever
-Connectivity <|-- LegacyConnectivityRetriever
-
-
-interface NetworkClientListener {
-    fun onNetworkResponse(status: Int, response: String)
-
-    fun onNetworkError(message: String)
-}
-
-interface NetworkClient {
-    var connectivity: Connectivity
-
-    var networkClientListener: NetworkClientListener?
-
-    suspend fun post(payload: String, urlString: String, gzip: Boolean)
-
-    suspend fun ifModified(urlString: String, timestamp: Long): Boolean?
-
-    suspend fun get(urlString: String): String?
-
-    fun validUrl(urlString: String): Boolean
-}
-
-
-NetworkClientListener --o NetworkClient
-
-NetworkClient <.. HttpClient
-TealiumConfig <.. HttpClient
-Connectivity <.. HttpClient
-
-@enduml
-```
 通过 HttpClient#post 函数发送数据，它直接使用 HttpURLConnection 进行网络连接。
 
 ```kotlin
@@ -642,83 +411,12 @@ Connectivity <.. HttpClient
 
 DispatchStorage 对外的接口
 
-```plantuml
-@startuml
+<image src="imag/tealium_7.png">
 
-interface KeyValueDao<K, T> {
-    fun get(key: K): T?
-    fun getAll(): Map<K, T>
-    fun insert(item: T)
-    fun update(item: T)
-    fun delete(key: K)
-    fun upsert(item: T)
-    fun clear()
-    fun keys(): List<K>
-    fun count(): Int
-    fun contains(key: K): Boolean
-    fun purgeExpired()
-}
-
-interface Listener
-interface EventListener
-
-interface LibrarySettingsUpdatedListener {
-    fun onLibrarySettingsUpdated(settings: LibrarySettings)
-}
-EventListener <|.. Listener
-Listener <|.. LibrarySettingsUpdatedListener
-
-
-class DispatchStorage {
-
-}
-KeyValueDao <|.. QueueingDao
-
-LibrarySettingsUpdatedListener <|.. DispatchStorage
-QueueingDao <|.. DispatchStorage
-
-Dispatch <.. DispatchStorage
-
-class DatabaseHelper {
-
-}
-
-SQLiteOpenHelper <|.. DatabaseHelper
-TealiumConfig <.. DatabaseHelper
-
-DatabaseHelper <.. DispatchStorage
-
-class PersistentStorageDao {
-
-}
-
-KeyValueDao <|..PersistentStorageDao
-
-class PersistentItem {
-    fun toContentValues(): ContentValues 
-}
-
-interface StringSerializer<T> {
-    fun serialize(): String
-}
-
-StringSerializer <|.. PersistentItem
-
-PersistentItem <.. PersistentStorageDao
-PersistentStorageDao <.. PersistentStorage
-
-PersistentStorageDao <.. DispatchStorageDao
-
-DispatchStorageDao <.. DispatchStorage
-
-@enduml
-```
 说明
 
 - DatabaseHelper 实现抽象类 SQLiteOpenHelper，用来管理数据库。
 - DispatchStorage 数据管理对外的一个类，外部的对数据的调用都是通过此类。
-
-
 
 
 

@@ -327,7 +327,7 @@ interface AppData {
 }
 
 Collector <|-- AppData
-AppData <|-- AppCollector
+AppData <|.. AppCollector
 
 interface ConnectivityData {
     val carrier: String
@@ -358,8 +358,8 @@ interface DeviceData {
     val deviceLanguage: String
 }
 
-DeviceData <|-- DeviceCollector
-Collector <|-- DeviceCollector
+DeviceData <|.. DeviceCollector
+Collector <|.. DeviceCollector
 
 interface TealiumData {
     val account: String
@@ -368,8 +368,8 @@ interface TealiumData {
     val dataSource: String?
 }
 
-TealiumData <|-- TealiumCollector 
-Collector <|-- TealiumCollector
+TealiumData <|.. TealiumCollector 
+Collector <|.. TealiumCollector
 
 interface TimeData {
     val timestamp: String
@@ -379,17 +379,17 @@ interface TimeData {
     val timestampUnixMilliseconds: Long
 }
 
-TimeData <|-- TimeCollector
-Collector <|-- TimeCollector
+TimeData <|.. TimeCollector
+Collector <|.. TimeCollector
 
-Collector <|-- ModuleCollector 
+Collector <|.. ModuleCollector 
 
 interface NewSessionListener {
     fun onNewSession(sessionId: Long)
 }
 
-Collector <|-- SessionCollector
-NewSessionListener <|-- SessionCollector
+Collector <|.. SessionCollector
+NewSessionListener <|.. SessionCollector
 
 @enduml
 ```
@@ -461,7 +461,7 @@ class VisitorService {
     fun requestVisitorProfile()
 }
 
-Module <|-- VisitorService
+Module <|.. VisitorService
 VisitorService o-- TealiumContext
 VisitorService o-- VisitorProfileManager
 
@@ -474,7 +474,7 @@ class VisitorManager {
 
 
 }
-VisitorProfileManager <|-- VisitorManager
+VisitorProfileManager <|.. VisitorManager
 
 @enduml
 
@@ -536,15 +536,15 @@ class GenericDispatch {
 
 }
 
-Dispatch <|-- GenericDispatch 
+Dispatch <|.. GenericDispatch 
 
-Dispatch <|-- JsonDispatch 
+Dispatch <|.. JsonDispatch 
 
-Dispatch <|-- TealiumEvent 
+Dispatch <|.. TealiumEvent 
 
-Dispatch <|-- TealiumView 
+Dispatch <|.. TealiumView 
 
- Dispatch --o BatchDispatch
+BatchDispatch o-- Dispatch 
 
 @enduml
 
@@ -563,8 +563,8 @@ interface Connectivity {
     fun connectionType(): String
 }
 
-Connectivity <|-- ConnectivityRetriever
-Connectivity <|-- LegacyConnectivityRetriever
+Connectivity <|.. ConnectivityRetriever
+Connectivity <|.. LegacyConnectivityRetriever
 
 
 interface NetworkClientListener {
@@ -909,7 +909,6 @@ data class Batching(var batchSize: Int = 1,
 
 - 良好的分层设计，将核心和外围拓展功能比较清晰的划分
 - Collector 使用了迭代器设计模式
-- 
 
 
 # 4.0 其他
