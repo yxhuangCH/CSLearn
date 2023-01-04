@@ -74,9 +74,15 @@
 
 [Espresso 3: Fragment](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Espresso-Fragment.md)
 
-[Espresso 4: Intent](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Espresso-Intent.md)
+[Espresso 4: Intent](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Espresso-4-Intent.md)
 
-[Espresso 5: Toast](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Espresso-4-toast.md)
+[Espresso 5: Toast](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Espresso-5-toast.md)
+
+[Espresso 6: RecyclerView](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Espresso-6-RecyclerView.md)
+
+[Espresso 7: Idling resource](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Espresso-7-idling-resource.md)
+
+[Espresso 8: Test Rule](https://github.com/yxhuangCH/CSLearn/blob/master/android/test/Espresso-8-EspressRule.md)
 
 
 ## 二、Java 部分
