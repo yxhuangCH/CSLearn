@@ -1,0 +1,37 @@
+[{
+	"absoluteFilesNames": [
+		"/sdcard/screenshots/com.facebook.testing.screenshot.example.test/screenshots-default/com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity", 
+		"/sdcard/screenshots/com.facebook.testing.screenshot.example.test/screenshots-default/com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_0_1", 
+		"/sdcard/screenshots/com.facebook.testing.screenshot.example.test/screenshots-default/com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_0_2", 
+		"/sdcard/screenshots/com.facebook.testing.screenshot.example.test/screenshots-default/com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_0_3", 
+		"/sdcard/screenshots/com.facebook.testing.screenshot.example.test/screenshots-default/com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_1_0", 
+		"/sdcard/screenshots/com.facebook.testing.screenshot.example.test/screenshots-default/com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_1_1", 
+		"/sdcard/screenshots/com.facebook.testing.screenshot.example.test/screenshots-default/com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_1_2", 
+		"/sdcard/screenshots/com.facebook.testing.screenshot.example.test/screenshots-default/com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_1_3", 
+		"/sdcard/screenshots/com.facebook.testing.screenshot.example.test/screenshots-default/com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_2_0",
+		"/sdcard/screenshots/com.facebook.testing.screenshot.example.test/screenshots-default/com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_2_1", 
+		"/sdcard/screenshots/com.facebook.testing.screenshot.example.test/screenshots-default/com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_2_2",
+		"/sdcard/screenshots/com.facebook.testing.screenshot.example.test/screenshots-default/com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_2_3"],
+	
+	"axIssues": "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_issues.json",
+	"extras": {},
+	"name": "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity",
+	"relativeFileNames": [
+		"com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity",
+		 "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_0_1", 
+		 "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_0_2",
+		 "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_0_3",
+		 "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_1_0",
+		 "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_1_1", 
+		 "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_1_2", 
+		 "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_1_3", 
+		 "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_2_0", 
+		 "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_2_1", 
+		 "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_2_2", 
+		 "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_2_3"],
+	"testClass": "com.facebook.testing.screenshot.sample.MainActivityTest",
+	"testName": "testScreenshotEntireActivity",
+	"tileHeight": 4,
+	"tileWidth": 3,
+	"viewHierarchy": "com.facebook.testing.screenshot.sample.MainActivityTest_testScreenshotEntireActivity_dump.json"
+}]
