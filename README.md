@@ -190,3 +190,20 @@
 ## 十三、 学习资料
 - [Android 工程师学习资料](https://github.com/yxhuangCH/CSLearn/blob/master/%E5%85%B6%E4%BB%96/Android%20%E5%AD%A6%E4%B9%A0%E6%8E%A8%E8%8D%90%E8%B5%84%E6%96%99.md)
 
+## 十四, 软件工程
+### Code review
+**Developer**
+
+- [How to handle reviewer comments](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/code%20review/developer/How_to_handle_reviewer_comments.md)
+- [Writing good CL descriptions](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/code%20review/developer/wiriting_good_CL_description.md)
+- [Small CLs](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/code%20review/developer/Small_CLs.md)
+
+**Reviewer**
+
+- [The standard of code review](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/code%20review/reviewer/The_standard_of_code_review.md)
+- [What to look For In a Code Review](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/code%20review/reviewer/what_to_look_for_in_code_review.md)
+- [Navigating a CL in Review](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/code%20review/reviewer/navigating_a_cl_in_review.md)
+- [Speed of Code Reviews](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/code%20review/reviewer/speed_of_code_reviews.md)
+- [Handing pushback in code reviews](https://github.com/yxhuangCH/CSLearn/blob/master/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/code%20review/reviewer/hand_push_back_in_code_reviews.md)
+
+
