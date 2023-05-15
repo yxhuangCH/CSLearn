@@ -1,7 +1,6 @@
 # Navigating a CL in Review
 https://google.github.io/eng-practices/review/reviewer/navigate.html
 
-
 ## Summary
 - Does the change make sense? Does it have a good description?
 - Look at the most important part of the change first.Is it well-designed overall?
@@ -22,3 +21,4 @@ Does this change even make sense? If this change shoulddn't have happened in the
 There are no major design problems with the CL as a whole, try to figure out a logical sequence to look through the files.
 Sometimes it's also helpful to read the ests first before you read the main code, because then you have an idea of what is supposed to be doing.
 如果主要的设计部分没有问题，就可以仔细去看每个文件里面的逻辑等问题。有时候在review 主要部分代码之前，可以先看一下这部分的测试代码，通过这些测试代码，可以让 reviewer 掌握这些代码改动的意图。
+
