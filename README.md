@@ -175,7 +175,7 @@
 
 [10.7 Komposable Architecture 在 Android 中的使用](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/kompose/Kompose.md)
 
-[10.8 Introduction of Kompose Source code]((https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/kompose/kompose-source-code.md))
+[10.8 Introduction of Kompose Source code](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/kompose/kompose-source-code.md)
 
 ## 十一、IDE
 [11.1 Git 常用命令](https://github.com/yxhuangCH/CSLearn/blob/master/IDE/Git%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.md)
