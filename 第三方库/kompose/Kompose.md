@@ -552,7 +552,7 @@ fun `loading`() = runTest {
 ```
 
 ## 3.2 SideEffect Unit Test
-withEffect 的情况下的 Test 比较复杂，因为它涉及到 Flow 的测试。好在，对 Flow 的测试可以用 turbine, 关于 turbine 请访问 https://github.com/cashapp/turbine。
+withEffect 的情况下的 Test 比较复杂，因为它涉及到 Flow 的测试。好在，对 Flow 的测试可以用 turbine, 关于 turbine 请访问 https://github.com/cashapp/turbine
 
 AddEditTaskReducer.kt
 ``` kotlin
