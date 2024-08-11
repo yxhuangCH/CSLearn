@@ -173,6 +173,8 @@
 
 [10.6 Screenshot-android 分析](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/screenshot-tests-for-android/Screenshot-android.md)
 
+[10.6 Komposable Architecture 在 Android 中的使用](https://github.com/yxhuangCH/CSLearn/blob/master/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/kompose/Kompose.md)
+
 ## 十一、IDE
 [11.1 Git 常用命令](https://github.com/yxhuangCH/CSLearn/blob/master/IDE/Git%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.md)
 
